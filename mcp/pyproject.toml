@@ -1,6 +1,6 @@
 [project]
 name = "claudii-exploratores-mcp"
-version = "1.0.0b0"
+version = "1.0.0a1"
 description = "Claudii Exploratores — MCP server exposing the Exploratores OSINT toolkit (898 tools): indicator classification, curated OSINT search-URL building, IBAN validation and PII redaction."
 readme = "README.md"
 requires-python = ">=3.9"

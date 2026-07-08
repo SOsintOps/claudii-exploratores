@@ -1,0 +1,61 @@
+CLAUDII EXPLORATORES — GITHUB REPOSITORY SETUP (copy/paste ready)
+================================================================
+
+Use these values to configure the repo on github.com/SOsintOps/claudii-exploratores.
+
+------------------------------------------------------------
+1) ABOUT  (repo home page → gear icon next to "About")
+------------------------------------------------------------
+Description:
+  OSINT suite for Claude — 898 curated OSINT tools as an Agent Skill + MCP server (classifier, URL builder, IBAN check, PII redactor). ALPHA.
+
+Website:
+  https://github.com/SOsintOps/Exploratores
+
+Topics (add each):
+  osint
+  mcp
+  model-context-protocol
+  claude
+  claude-skill
+  ai-agents
+  investigation
+  threat-intelligence
+  reconnaissance
+  iban
+  pii-redaction
+  python
+
+Check:
+  [x] Releases
+  [ ] Packages (optional)
+  [ ] Deployments
+
+------------------------------------------------------------
+2) SOCIAL PREVIEW  (Settings → General → Social preview → Edit)
+------------------------------------------------------------
+Upload the image:
+  assets/social-preview.png   (1280 x 640)
+
+------------------------------------------------------------
+3) REPOSITORY DETAILS  (Settings → General)
+------------------------------------------------------------
+- Default branch: main
+- Features: Issues = ON, Discussions = optional, Wiki = optional
+- Pull Requests: "Allow squash merging" recommended
+
+------------------------------------------------------------
+4) RELEASE  (Releases → Draft a new release)
+------------------------------------------------------------
+- Tag:            v1.0.0-alpha   (create on publish, target: main)
+- Title:          Claudii Exploratores v1.0.0-alpha
+- Description:    paste docs/RELEASE_NOTES_v1.0.0-alpha.md
+- [x] Set as a pre-release
+- Attach binary:  dist/claudii-exploratores.skill
+
+------------------------------------------------------------
+5) (Optional) COMMUNITY FILES
+------------------------------------------------------------
+Consider adding: CONTRIBUTING.md, SECURITY.md, CODE_OF_CONDUCT.md,
+and a .github/ISSUE_TEMPLATE. GitHub's "Community Standards" page shows what's
+missing.
