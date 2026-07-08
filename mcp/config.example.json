@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "claudii-exploratores": {
+      "command": "python",
+      "args": ["-m", "exploratores_osint_mcp.server"],
+      "env": {}
+    }
+  }
+}
