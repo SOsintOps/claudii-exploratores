@@ -7,8 +7,8 @@
 *"The scouts of Claudius"* — a nod to the Roman reconnaissance units (*exploratores*)
 and to Claude. OSINT reconnaissance, ported for AI agents.
 
-[![status](https://img.shields.io/badge/status-beta-orange)](#-project-status)
-[![version](https://img.shields.io/badge/version-1.0.0--beta-blue)](#)
+[![status](https://img.shields.io/badge/status-alpha-orange)](#-project-status)
+[![version](https://img.shields.io/badge/version-1.0.0--alpha-blue)](#)
 [![license](https://img.shields.io/badge/license-AGPL--3.0-green)](LICENSE)
 [![python](https://img.shields.io/badge/python-3.9%2B-blue)](#-requirements)
 [![MCP](https://img.shields.io/badge/protocol-MCP-8A2BE2)](https://modelcontextprotocol.io)
@@ -19,9 +19,9 @@ and to Claude. OSINT reconnaissance, ported for AI agents.
 ---
 
 > [!WARNING]
-> **This is BETA software. Do not use it in production before testing.**
+> **This is ALPHA software. Do not use it in production before testing.**
 >
-> Claudii Exploratores is an early, community-maintained port of the Exploratores
+> Claudii Exploratores is a very early (alpha), community-maintained port of the Exploratores
 > toolkit. It has been functionally tested, but it has **not** been hardened or
 > validated for production or operational use. Search URLs, validators and the tool
 > catalog may contain errors inherited from upstream or introduced by the port.
@@ -225,7 +225,7 @@ the `.skill` archive.
 
 ## 🧪 Project status
 
-**Beta (v1.0.0-beta).** The suite is functional and has passed an internal QA pass
+**Alpha (v1.0.0-alpha).** The suite is functional and has passed an internal QA pass
 (catalog integrity, URL encoding, IBAN and redaction round-trips, MCP tool
 registration). It has **not** been hardened for production. Known limitations:
 
