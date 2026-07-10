@@ -120,10 +120,15 @@ Claudii-Exploratores/
 │   ├── osint_core.py             # classifier, field builder, URL renderer
 │   ├── iban_tools.py, redactor.py, _iban_countries.py
 │   └── catalog.json              # 898 tools (generated)
-├── scripts/                      # build & extraction tooling
+├── scripts/                      # build, extraction & verification tooling
 │   ├── extract_catalog.js        # (re)generate catalog.json from the web toolkit
-│   └── build_release.sh          # sync engine into skill+mcp, package .skill
-├── docs/                         # INSTALL.md, DISTRIBUTION.md
+│   ├── build_release.sh          # sync engine into skill+mcp, package .skill
+│   ├── classify_queries.py       # desk classification (auth/VPN) -> CSV
+│   ├── build_verification_worklist.py  # group queries by host for live checks
+│   ├── record_verification.py    # merge live-probe results into the worklist
+│   ├── generate_live_report.py   # render the live-verification report
+│   └── generate_access_guide.py  # render the user-facing access guide
+├── docs/                         # INSTALL, DISTRIBUTION, access & auth/VPN guides
 ├── dist/                         # build outputs (.skill archive) — git-ignored
 ├── LICENSE                       # AGPL-3.0 (inherited from Exploratores)
 └── NOTICE
@@ -137,7 +142,11 @@ into both `skill/` and `mcp/` so each is independently installable.
 - **Python 3.9+** (standard library only for the skill; the MCP adds the `mcp` package).
 - **Node.js** — only needed to *regenerate* the catalog from the upstream toolkit.
 - A modern browser (and, recommended, a VPN + sterile profile) to *open* the
-  generated links.
+  generated links. Which sources need a **login**, a **VPN** (and which country),
+  or **Tor** is documented in
+  [`docs/access-requirements-guide.md`](docs/access-requirements-guide.md)
+  (live-verified) and the desk analysis in
+  [`docs/query-auth-vpn-classification.md`](docs/query-auth-vpn-classification.md).
 
 ## 🚀 Installation
 
