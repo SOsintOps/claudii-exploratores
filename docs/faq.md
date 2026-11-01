@@ -82,7 +82,7 @@ Start with the [Intelligence Field Notes](https://github.com/SOsintOps/intellige
 *   [Analytic Techniques](https://github.com/SOsintOps/intelligence-field-notes/blob/main/docs/analytic-techniques.md): cognitive biases, analysis of competing hypotheses, premortem, deception.
 *   [Reading List](https://github.com/SOsintOps/intelligence-field-notes/blob/main/docs/reading-list.md): every text the notes draw on, linked.
 
-The skill carries a condensed version in [`references/methodology.md`](../skill/claudii-exploratores/references/methodology.md), which Claude reads when it advises on tradecraft.
+An offline copy of the notes is kept in [`docs/field-notes/`](field-notes/README.md), regenerated from the original at each release. The skill carries a condensed version in [`references/methodology.md`](../skill/claudii-exploratores/references/methodology.md), which Claude reads when it advises on tradecraft.
 
 ### How should I evaluate what I find?
 

@@ -21,3 +21,4 @@ Thumbs.db
 
 # Internal working files — live in the private claudii-exploratores-work repo, never publish
 docs/PROJECT_HANDOFF.md
+.pytest_cache/
