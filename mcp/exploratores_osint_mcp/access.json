@@ -2,23 +2,26 @@
   "meta": {
     "description": "Per-host access requirements (VPN country, Tor, account). 'live' = verified in a browser; 'desk' = desk classification.",
     "hosts_total": 373,
-    "hosts_flagged": 132,
+    "hosts_flagged": 130,
     "geo_locked": [
       "411.com",
       "800notes.com",
-      "b2bhint.com",
+      "advancedbackgroundchecks.com",
       "beta.shodan.io",
-      "callersmart.com",
+      "carvana.com",
       "cash.app",
       "cyberbackgroundchecks.com",
+      "familytreenow.com",
+      "fastpeoplesearch.com",
       "mysmsbox.ru",
       "nerdydata.com",
+      "numpi.com",
+      "people.yellowpages.com",
       "peoplesearchnow.com",
       "radaris.com",
       "rehold.com",
       "smartbackgroundchecks.com",
       "spam.org",
-      "telemetr.io",
       "usphonebook.com",
       "wmtips.com",
       "yandex.ru",
@@ -60,9 +63,9 @@
     },
     "advancedbackgroundchecks.com": {
       "country": "US",
-      "source": "desk",
-      "vpn": "recommended",
-      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Blocked from Italy (\"Sorry, you have been blocked\"); loads through a US exit. Rechecked in a browser on 2026-11-01."
     },
     "aleph.occrp.org": {
       "account": "recommended",
@@ -74,12 +77,6 @@
       "source": "desk",
       "vpn": "recommended",
       "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
-    },
-    "b2bhint.com": {
-      "country": "US",
-      "source": "live",
-      "vpn": "required",
-      "vpn_detail": "Restricted to US IP ranges; loads normally through a US exit."
     },
     "beta.shodan.io": {
       "account": "required",
@@ -95,15 +92,15 @@
     },
     "callersmart.com": {
       "country": "US",
-      "source": "live",
-      "vpn": "required",
-      "vpn_detail": "Restricted to US IP ranges; loads normally through a US exit."
-    },
-    "carvana.com": {
-      "country": "US",
       "source": "desk",
       "vpn": "recommended",
       "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "carvana.com": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Blocked from Italy (\"Sorry, you have been blocked\"); loads through a US exit. Rechecked in a browser on 2026-11-01."
     },
     "cash.app": {
       "country": "US",
@@ -138,7 +135,7 @@
       "country": "US",
       "source": "live",
       "vpn": "required",
-      "vpn_detail": "Restricted to US IP ranges; loads normally through a US exit."
+      "vpn_detail": "Blocked from Italy (\"Sorry, you have been blocked\"); loads through a US exit. Rechecked in a browser on 2026-11-01."
     },
     "cyclevin.com": {
       "country": "US",
@@ -194,15 +191,15 @@
     },
     "familytreenow.com": {
       "country": "US",
-      "source": "desk",
-      "vpn": "recommended",
-      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Blocked from Italy (\"Sorry, you have been blocked\"); loads through a US exit. Rechecked in a browser on 2026-11-01."
     },
     "fastpeoplesearch.com": {
       "country": "US",
-      "source": "desk",
-      "vpn": "recommended",
-      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Blocked from Italy (\"Sorry, you have been blocked\"); loads through a US exit. Rechecked in a browser on 2026-11-01."
     },
     "faxvin.com": {
       "country": "US",
@@ -363,9 +360,9 @@
     },
     "numpi.com": {
       "country": "US",
-      "source": "desk",
-      "vpn": "recommended",
-      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Blocked from Italy (\"Sorry, you have been blocked\"); loads through a US exit. Rechecked in a browser on 2026-11-01."
     },
     "okcaller.com": {
       "country": "US",
@@ -386,9 +383,9 @@
     },
     "people.yellowpages.com": {
       "country": "US",
-      "source": "desk",
-      "vpn": "recommended",
-      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Blocked from Italy (\"Sorry, you have been blocked\"); loads through a US exit. Rechecked in a browser on 2026-11-01."
     },
     "peoplebyname.com": {
       "country": "US",
@@ -406,7 +403,7 @@
       "country": "US",
       "source": "live",
       "vpn": "required",
-      "vpn_detail": "Restricted to US IP ranges; loads normally through a US exit."
+      "vpn_detail": "Blocked from Italy (\"Sorry, you have been blocked\"); loads through a US exit. Rechecked in a browser on 2026-11-01."
     },
     "phoneowner.com": {
       "country": "US",
@@ -521,7 +518,7 @@
       "country": "US",
       "source": "live",
       "vpn": "required",
-      "vpn_detail": "Restricted to US IP ranges; loads normally through a US exit."
+      "vpn_detail": "Blocked from Italy (\"Sorry, you have been blocked\"); loads through a US exit. Rechecked in a browser on 2026-11-01."
     },
     "snapchat.com": {
       "account": "required",
@@ -549,12 +546,6 @@
       "account": "recommended",
       "account_detail": "No login (public preview; login to interact)",
       "source": "live"
-    },
-    "telemetr.io": {
-      "country": "US",
-      "source": "live",
-      "vpn": "required",
-      "vpn_detail": "Restricted to US IP ranges; loads normally through a US exit."
     },
     "thatsthem.com": {
       "country": "US",

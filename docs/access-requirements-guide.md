@@ -2,6 +2,8 @@
 
 > Companion guide to the Exploratores query catalog. Last updated: 2026-07-10; revised 2026-11-01.
 >
+> **2026-11-01 recheck:** the hosts that failed an automated check were opened in a browser through a VPN exit in their candidate country (United States, Sweden), and the ones that opened there were compared with a home IP in Italy. Six US people-search, phone and vehicle sources are now confirmed geo-locked (numpi, Yellow Pages people search, Advanced Background Checks, Carvana, FamilyTreeNow, FastPeopleSearch); B2BHint, Telemetr and CallerSmart open from Italy and are no longer listed as US-only. Sources added to the catalog after 2026-07 (Legal, Telegram, Italian registries, SanctionsKit) are covered by the desk classification and the automated check, not listed here one by one.
+>
 > **2026-11-01 revision:** the 22 sources removed from the catalog in the Exploratores 3.10.2–3.10.4 dead-link review (RiskIQ, ThreatCrowd, psbdmp, Nuwber, SpyTox, SpyOnWeb, OXT.me, UDRPSearch and others) are dropped from the tables and the counts below are recomputed. The sources added in that review (Arctic Shift, WIPO's new search pages, the CAC UDRP database, search.usa.gov for FOIA) were not part of the 2026-07-10 live verification and are not listed here; see `docs/query_classification.csv` for their desk classification.
 
 This guide tells you, for each source behind the catalog's queries, whether you need to **log in**, whether a **VPN** (and which country) helps or is required, and which sources are **Tor-only**. Requirements are per *source* (host); the **#q** column is how many catalog queries use that source.
@@ -28,10 +30,10 @@ This guide tells you, for each source behind the catalog's queries, whether you 
 | Account required | 34 | 176 |
 | Account recommended | 15 | 89 |
 | Account not needed | 253 | 494 |
-| VPN required (a country) | 19 | 26 |
+| VPN required (a country) | 22 | 34 |
 | Tor required (.onion) | 9 | 9 |
-| Bot-protection seen (VPN may help) | 39 | 84 |
-| Unverified | 64 | 115 |
+| Bot-protection seen (VPN may help) | 35 | 75 |
+| Unverified | 59 | 105 |
 
 ---
 
@@ -94,29 +96,32 @@ This guide tells you, for each source behind the catalog's queries, whether you 
 | kik.me | usernames | 1 | No login (deep-link splash); Kik app to chat |
 | moz.com | domains | 1 | Free registration for full results |
 
-## 🌍 VPN required — by country  (19 sources, 26 queries)
+## 🌍 VPN required — by country  (22 sources, 34 queries)
 
 
-### US  (19 sources)
+### US  (22 sources)
 
 | Source | Category | #q | Detail |
 | --- | --- | --- | --- |
+| numpi.com | phoneus | 1 | Blocked from Italy ("Sorry, you have been blocked"); loads through a US exit. Rechecked in a browser on 2026-11-01. |
+| people.yellowpages.com | phoneus | 1 | Blocked from Italy ("Sorry, you have been blocked"); loads through a US exit. Rechecked in a browser on 2026-11-01. |
+| www.advancedbackgroundchecks.com | address | 3 | Blocked from Italy ("Sorry, you have been blocked"); loads through a US exit. Rechecked in a browser on 2026-11-01. |
+| www.carvana.com | vehicles | 1 | Blocked from Italy ("Sorry, you have been blocked"); loads through a US exit. Rechecked in a browser on 2026-11-01. |
+| www.familytreenow.com | names | 1 | Blocked from Italy ("Sorry, you have been blocked"); loads through a US exit. Rechecked in a browser on 2026-11-01. |
+| www.fastpeoplesearch.com | address | 4 | Blocked from Italy ("Sorry, you have been blocked"); loads through a US exit. Rechecked in a browser on 2026-11-01. |
 | beta.shodan.io | ip | 3 | Loads via a US exit, then requires an account. |
-| www.cyberbackgroundchecks.com | address | 3 | Restricted to US IP ranges; loads normally through a US exit. |
+| www.cyberbackgroundchecks.com | address | 3 | Blocked from Italy ("Sorry, you have been blocked"); loads through a US exit. Rechecked in a browser on 2026-11-01. |
 | www.411.com | phoneint | 2 | Restricted to US IP ranges; loads normally through a US exit. |
-| www.peoplesearchnow.com | names | 2 | Restricted to US IP ranges; loads normally through a US exit. |
+| www.peoplesearchnow.com | names | 2 | Blocked from Italy ("Sorry, you have been blocked"); loads through a US exit. Rechecked in a browser on 2026-11-01. |
 | www.zabasearch.com | names | 2 | Restricted to US IP ranges; loads normally through a US exit. |
 | 800notes.com | phoneus | 1 | Restricted to US IP ranges; loads normally through a US exit. |
-| b2bhint.com | publiccompanyrecords | 1 | Restricted to US IP ranges; loads normally through a US exit. |
 | cash.app | usernames | 1 | Restricted to US IP ranges; loads normally through a US exit. |
 | mysmsbox.ru | phoneint | 1 | Restricted to US IP ranges; loads normally through a US exit. |
 | nerdydata.com | domains | 1 | Restricted to US IP ranges; loads normally through a US exit. |
 | radaris.com | names | 1 | Restricted to US IP ranges; loads normally through a US exit. |
 | rehold.com | address | 1 | Restricted to US IP ranges; loads normally through a US exit. |
-| smartbackgroundchecks.com | address | 1 | Restricted to US IP ranges; loads normally through a US exit. |
+| smartbackgroundchecks.com | address | 1 | Blocked from Italy ("Sorry, you have been blocked"); loads through a US exit. Rechecked in a browser on 2026-11-01. |
 | spam.org | domains | 1 | Restricted to US IP ranges; loads normally through a US exit. |
-| telemetr.io | communities | 1 | Restricted to US IP ranges; loads normally through a US exit. |
-| www.callersmart.com | phoneus | 1 | Restricted to US IP ranges; loads normally through a US exit. |
 | www.usphonebook.com | phoneus | 1 | Restricted to US IP ranges; loads normally through a US exit. |
 | www.wmtips.com | domains | 1 | Restricted to US IP ranges; loads normally through a US exit. |
 | yandex.ru | videos | 1 | Restricted to US IP ranges; loads normally through a US exit. |
@@ -135,17 +140,15 @@ This guide tells you, for each source behind the catalog's queries, whether you 
 | www.tor66sewebgixwhcqfnp5inzp5x5uohhdy3kvtnyfxc2e5mxiuh34iid.onion | searchengines | 1 |  |
 | zb2jtkhnbvhkya3d46twv3g7lkobi4s62tjffqmafjibixk6pmq75did.onion | searchengines | 1 |  |
 
-## 🧭 Bot-protection seen during testing (a VPN/other exit may help)  (39 sources, 84 queries)
+## 🧭 Bot-protection seen during testing (a VPN/other exit may help)  (35 sources, 75 queries)
 
 | Source | Category | #q | Detail |
 | --- | --- | --- | --- |
 | yandex.com | domains | 15 | N/A |
 | blockchair.com | currencies | 7 | No login |
 | thatsthem.com | email | 6 | N/A |
-| www.fastpeoplesearch.com | address | 4 | N/A |
 | www.tineye.com | images | 4 | N/A |
 | platform.arkhamintelligence.com | currencies | 3 | N/A |
-| www.advancedbackgroundchecks.com | address | 3 | N/A |
 | www.searchpeoplefree.com | address | 3 | N/A |
 | www.truepeoplesearch.com | address | 3 | N/A |
 | www.whitepages.com | address | 3 | N/A |
@@ -162,12 +165,10 @@ This guide tells you, for each source behind the catalog's queries, whether you 
 | mrkoll.se | names | 1 | N/A |
 | namechk.com | usernames | 1 | N/A |
 | ng-check.com | publiccompanyrecords | 1 | N/A |
-| numpi.com | phoneus | 1 | N/A |
 | openpayrolls.com | publiccompanyrecords | 1 | N/A |
 | search.cac.gov.ng | publiccompanyrecords | 1 | N/A |
 | viz.greynoise.io | ip | 1 | N/A |
 | voterrecords.com | publiccompanyrecords | 1 | N/A |
-| www.familytreenow.com | names | 1 | N/A |
 | www.faxvin.com | vehicles | 1 | N/A |
 | www.infobyip.com | ip | 1 | N/A |
 | www.ip-lookup.org | ip | 1 | N/A |
@@ -179,12 +180,15 @@ This guide tells you, for each source behind the catalog's queries, whether you 
 | www.vindecoderz.com | vehicles | 1 | N/A |
 | zapper.fi | currencies | 1 | N/A |
 
-## ✅ No account, no VPN — works as-is  (222 sources, 458 queries)
+## ✅ No account, no VPN — works as-is  (224 sources, 460 queries)
 
 Distribution by catalog category:
 
 | Category | Sources |
 | --- | --- |
+| b2bhint.com | publiccompanyrecords | 1 | Opened from a home IP in Italy on 2026-11-01 (listed as US-only in 2026-07). |
+| telemetr.io | communities | 1 | Opened from a home IP in Italy on 2026-11-01 (listed as US-only in 2026-07). |
+| www.callersmart.com | phoneus | 1 | Opened from a home IP in Italy on 2026-11-01 (listed as US-only in 2026-07). |
 | domains | 53 |
 | usernames | 22 |
 | names | 18 |
@@ -374,7 +378,6 @@ Distribution by catalog category:
 | www.truecaller.com | phoneint | 1 |
 | www.vedbex.com | phoneint | 1 |
 | infotracer.com | phoneus | 2 |
-| people.yellowpages.com | phoneus | 1 |
 | www.americaphonebook.com | phoneus | 1 |
 | www.okcaller.com | phoneus | 1 |
 | www.whoseno.com | phoneus | 1 |
@@ -436,17 +439,15 @@ Distribution by catalog category:
 
 </details>
 
-## ❔ Unverified (probe inconclusive — treat with caution)  (55 sources, 106 queries)
+## ❔ Unverified (probe inconclusive — treat with caution)  (50 sources, 96 queries)
 
 | Source | Category | #q | Detail |
 | --- | --- | --- | --- |
 | yandex.com | domains | 15 | N/A |
 | thatsthem.com | email | 6 | N/A |
-| www.fastpeoplesearch.com | address | 4 | N/A |
 | www.tineye.com | images | 4 | N/A |
 | checko.ru | names | 3 | N/A |
 | platform.arkhamintelligence.com | currencies | 3 | N/A |
-| www.advancedbackgroundchecks.com | address | 3 | N/A |
 | www.searchpeoplefree.com | address | 3 | N/A |
 | www.truepeoplesearch.com | address | 3 | N/A |
 | www.whitepages.com | address | 3 | N/A |
@@ -473,7 +474,6 @@ Distribution by catalog category:
 | mrkoll.se | names | 1 | N/A |
 | namechk.com | usernames | 1 | N/A |
 | ng-check.com | publiccompanyrecords | 1 | N/A |
-| numpi.com | phoneus | 1 | N/A |
 | openpayrolls.com | publiccompanyrecords | 1 | N/A |
 | phoneowner.com | phoneus | 1 | N/A |
 | profilediscover.com | usernames | 1 | loaded-thin |
@@ -481,8 +481,6 @@ Distribution by catalog category:
 | tinder.com | usernames | 1 | n/a (nav-blocked) |
 | viz.greynoise.io | ip | 1 | N/A |
 | voterrecords.com | publiccompanyrecords | 1 | N/A |
-| www.carvana.com | vehicles | 1 | N/A |
-| www.familytreenow.com | names | 1 | N/A |
 | www.faxvin.com | vehicles | 1 | N/A |
 | www.infobyip.com | ip | 1 | N/A |
 | www.ip-lookup.org | ip | 1 | N/A |
