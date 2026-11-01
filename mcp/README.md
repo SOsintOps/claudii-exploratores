@@ -1,8 +1,12 @@
 # Claudii Exploratores — MCP Server
 
+<!-- mcp-name: io.github.SOsintOps/claudii-exploratores -->
+
 A [Model Context Protocol](https://modelcontextprotocol.io) server exposing the
-Exploratores OSINT toolkit (874 tools) to any MCP client (Claude Desktop, etc.).
-Built with **FastMCP**. Offline — it builds search URLs, it does not fetch pages.
+Exploratores OSINT catalog (909 tools, 26 categories) to any MCP client (Claude
+Desktop, Claude Code, etc.). Offline — it builds search URLs, it does not fetch
+pages; every tool is annotated read-only and closed-world. Results carry access
+warnings for geo-locked (VPN country), Tor-only and login-only sources.
 
 ## Install
 
@@ -11,7 +15,7 @@ cd mcp
 pip install -e .          # or: uv pip install -e .
 ```
 
-Requires Python 3.9+ and the `mcp` package (installed automatically).
+Requires Python 3.10+ and the `mcp` package, 1.x or 2.x (installed automatically).
 
 ## Run
 
@@ -44,8 +48,8 @@ If installed in a virtualenv, point `command` at that interpreter, or use
 | Tool | Purpose |
 |---|---|
 | `classify_indicator(value)` | Detect the indicator type(s) with confidence scores. |
-| `build_osint_urls(value, indicator_type?, categories?, fields?, include_onion?, limit?)` | Curated OSINT search-URL set for the indicator. |
-| `search_catalog(query, limit?)` | Free-text search across the 874-tool catalog. |
+| `build_osint_urls(value, indicator_type?, categories?, fields?, include_onion?, limit?, exclude_geo_locked?)` | Curated OSINT search-URL set, with an `access_note` per link and `warnings`. |
+| `search_catalog(query, limit?)` | Free-text search across the catalog. |
 | `list_categories()` | Categories and tool counts. |
 | `verify_iban(value)` | Offline IBAN validation (ISO 13616 mod-97). |
 | `redact_pii(text, only?, custom_patterns?)` | Redact PII, returning a reversible map. |
