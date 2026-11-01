@@ -4,7 +4,7 @@ exploratores.py — command-line entry point for the Exploratores OSINT skill.
 
 Turns an investigation indicator (name, domain, email, IP, phone, username,
 coordinates, IBAN, crypto address, ...) into a curated list of OSINT search URLs,
-using the ported Exploratores catalog (898 tools). Also exposes the IBAN verifier
+using the ported Exploratores catalog (874 tools). Also exposes the IBAN verifier
 and the PII Redactor.
 
 Everything runs offline: it only *builds* URLs — it never opens them. The analyst

@@ -1,7 +1,7 @@
 """
 Exploratores OSINT — MCP server (FastMCP).
 
-Exposes the ported Exploratores toolkit (898 OSINT tools) as MCP tools so any MCP
+Exposes the ported Exploratores toolkit (874 OSINT tools) as MCP tools so any MCP
 client (Claude Desktop, etc.) can classify indicators, build curated OSINT search
 URL sets, verify IBANs and redact PII — all offline, without a browser.
 
@@ -29,7 +29,7 @@ except ImportError:  # pragma: no cover
 mcp = FastMCP(
     "claudii-exploratores",
     instructions=(
-        "OSINT investigation tools ported from the Exploratores toolkit (898 curated "
+        "OSINT investigation tools ported from the Exploratores toolkit (874 curated "
         "tools across 24 categories). Use classify_indicator to detect what a value is, "
         "build_osint_urls to get a curated set of search links for an indicator, "
         "search_catalog / list_categories to explore the catalog, verify_iban for "

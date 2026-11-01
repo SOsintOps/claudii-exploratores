@@ -6,7 +6,7 @@ description: >
   domain, IP address, phone number, company, coordinates, IBAN, or crypto address —
   and needs the right set of curated OSINT search links, or wants to validate an
   IBAN or redact PII before sharing case text with an external model. Ports the
-  Exploratores toolkit's catalog of 898 OSINT tools across 24 categories, with an
+  Exploratores toolkit's catalog of 874 OSINT tools across 24 categories, with an
   indicator classifier, input validators, IBAN verifier and PII Redactor. Triggers
   on: "OSINT", "investigate this domain/person/email/username", "reverse search",
   "find profiles for", "who owns this domain", "check this IBAN", "redact this text".
@@ -16,7 +16,7 @@ license: See repository LICENSE (derived from Exploratores, GPL-compatible).
 # Claudii Exploratores — OSINT Skill
 
 You help conduct **open-source intelligence (OSINT)** investigations by turning an
-indicator into a curated set of search links drawn from 898 vetted OSINT tools, and
+indicator into a curated set of search links drawn from 874 vetted OSINT tools, and
 by running supporting utilities (indicator classification, IBAN validation, PII
 redaction). You follow professional analytic and OPSEC standards.
 
@@ -55,7 +55,7 @@ Given an investigation target:
    - `--no-onion` to drop Tor links; `--limit N` to cap.
 3. **Present** the results to the user grouped by category, and propose which
    handful to open first based on the 5W1H question they care about (see below).
-   Do **not** dump all 898 — curate.
+   Do **not** dump all 874 — curate.
 4. **(Agent mode, optional)** If the user asks you to actually run the searches and
    the Chrome extension is available, open the highest-value URLs in the browser,
    read the pages, and summarise real findings with source links. Otherwise hand
@@ -105,7 +105,7 @@ ranked by confidence — pick with the user if it matters.
 - `scripts/exploratores.py` — CLI (commands above).
 - `scripts/osint_core.py` — engine: classifier, field builder, URL renderer.
 - `scripts/iban_tools.py`, `scripts/redactor.py`, `scripts/_iban_countries.py`.
-- `scripts/catalog.json` — the 898-tool catalog (id, category, label, urlTemplate).
+- `scripts/catalog.json` — the 874-tool catalog (id, category, label, urlTemplate).
 - `references/methodology.md` — analytic standards, 5W1H, OPSEC (read when advising
   on investigative approach or tradecraft).
 - `references/catalog_overview.md` — category-by-category tool map.

@@ -1,7 +1,7 @@
 # Claudii Exploratores — MCP Server
 
 A [Model Context Protocol](https://modelcontextprotocol.io) server exposing the
-Exploratores OSINT toolkit (898 tools) to any MCP client (Claude Desktop, etc.).
+Exploratores OSINT toolkit (874 tools) to any MCP client (Claude Desktop, etc.).
 Built with **FastMCP**. Offline — it builds search URLs, it does not fetch pages.
 
 ## Install
@@ -45,7 +45,7 @@ If installed in a virtualenv, point `command` at that interpreter, or use
 |---|---|
 | `classify_indicator(value)` | Detect the indicator type(s) with confidence scores. |
 | `build_osint_urls(value, indicator_type?, categories?, fields?, include_onion?, limit?)` | Curated OSINT search-URL set for the indicator. |
-| `search_catalog(query, limit?)` | Free-text search across the 898-tool catalog. |
+| `search_catalog(query, limit?)` | Free-text search across the 874-tool catalog. |
 | `list_categories()` | Categories and tool counts. |
 | `verify_iban(value)` | Offline IBAN validation (ISO 13616 mod-97). |
 | `redact_pii(text, only?, custom_patterns?)` | Redact PII, returning a reversible map. |

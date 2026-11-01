@@ -1,28 +1,28 @@
 # Catalog Overview
 
-The catalog holds **898 OSINT tools** across **24 categories** (source: Exploratores OSINT Toolkit 3.4.1). Each entry is a URL template filled from the classified indicator and URL-encoded, exactly as the original toolkit does.
+The catalog holds **874 OSINT tools** across **24 categories** (source: Exploratores OSINT Toolkit 3.4.1, with the dead-link review of Exploratores 3.10.2–3.10.4 applied). Each entry is a URL template filled from the classified indicator and URL-encoded, exactly as the original toolkit does.
 
 Use `python scripts/exploratores.py categories` for live counts and `... search "<keyword>"` to find a specific tool.
 
 | Category | Tools | What it covers |
 |---|---|---|
-| `domains` | 149 | Domain intelligence: WHOIS/history, DNS, tech profiling, screenshots, archives, subdomains. |
-| `usernames` | 69 | Pivot a username/handle across dozens of platforms and enumeration services. |
-| `names` | 61 | Search a person by full name across people-search, directories and social platforms. |
-| `ip` | 58 | IP-address intelligence: geolocation, reputation, ports/services, WiFi (WiGLE), ranges. |
+| `domains` | 138 | Domain intelligence: WHOIS/history, DNS, tech profiling, screenshots, archives, subdomains. |
+| `usernames` | 66 | Pivot a username/handle across dozens of platforms and enumeration services. |
+| `names` | 59 | Search a person by full name across people-search, directories and social platforms. |
+| `ip` | 57 | IP-address intelligence: geolocation, reputation, ports/services, WiFi (WiGLE), ranges. |
 | `publiccompanyrecords` | 56 | Corporate registries and officer/company records across jurisdictions. |
-| `currencies` | 48 | Cryptocurrency address analysis and blockchain explorers (BTC/ETH/XMR). |
+| `currencies` | 46 | Cryptocurrency address analysis and blockchain explorers (BTC/ETH/XMR). |
 | `facebook` | 46 | Facebook-specific search by name, username or numeric ID. |
-| `phoneint` | 44 | International phone number lookups (E.164 variants, reverse WHOIS, messaging apps). |
+| `phoneint` | 43 | International phone number lookups (E.164 variants, reverse WHOIS, messaging apps). |
 | `videos` | 39 | Video platform search and analysis (YouTube, Vimeo, TikTok, etc.). |
 | `communities` | 32 | Forums and community platforms (Reddit, Telegram, Discord, Hacker News, etc.). |
 | `maps` | 32 | Geolocation and mapping tools by coordinates/address. |
 | `x` | 31 | X/Twitter search by handle, ID, list, real name, date range. |
 | `docs` | 30 | Document and file search (leaks, pastes, code, scribd-style repositories). |
 | `vk` | 30 | VKontakte search by username, ID, tag. |
-| `phoneus` | 29 | US phone number lookups (reverse phone, carrier, people search). |
 | `searchengines` | 28 | General clear-web and Tor search engines (Google dorks, Yandex, Bing, DuckDuckGo, Wayback, Ahmia, .onion engines). |
-| `email` | 25 | Investigate an email address: breach/exposure lookups, reverse email, validators. |
+| `phoneus` | 27 | US phone number lookups (reverse phone, carrier, people search). |
+| `email` | 23 | Investigate an email address: breach/exposure lookups, reverse email, validators. |
 | `address` | 22 | Physical-address lookups (US and international property/people directories). |
 | `instagram` | 18 | Instagram-specific search by username, user ID, hashtag. |
 | `images` | 16 | Reverse image search and image analysis. |
@@ -33,28 +33,28 @@ Use `python scripts/exploratores.py categories` for live counts and `... search 
 
 ## Example: sample tools per category (first 5)
 
-### `domains` (149)
+### `domains` (138)
 - **AnalyzeID** — `domains-adsense-analyzeid`
 - **DNSlytics** — `domains-adsense-dnslytics`
 - **HackerTarget** — `domains-adsense-hackertarget`
-- **RiskIQ** — `domains-adsense-riskiq`
 - **AnalyzeID** — `domains-analytics-analyzeid`
+- **DNSlytics** — `domains-analytics-dnslytics`
 
-### `usernames` (69)
+### `usernames` (66)
 - **AlienVault Indicator** — `usernames-alienvault`
 - **Arkham Entity** — `usernames-arkham`
 - **ASA Search** — `usernames-asa`
 - **Bing** — `usernames-bing-search`
 - **CashApp User** — `usernames-cashapp`
 
-### `names` (61)
+### `names` (59)
 - **9ja Book** — `names-9jabook`
 - **ASA** — `names-asa`
 - **Canada411** — `names-canada411`
 - **Censys Certificates** — `names-censys-cert`
 - **Checko** — `names-checkoru`
 
-### `ip` (58)
+### `ip` (57)
 - **DNSChecker** — `ip-info-dnschecker`
 - **DomainTools Whois** — `ip-info-domaintools`
 - **InfoByIp** — `ip-info-infobyip`
@@ -68,7 +68,7 @@ Use `python scripts/exploratores.py categories` for live counts and `... search 
 - **CAC (Nigeria)** — `publiccompanyrecords-company-cac`
 - **Censys Certificates** — `publiccompanyrecords-company-censys`
 
-### `currencies` (48)
+### `currencies` (46)
 - **Arkham (Explorer)** — `currencies-analysis-arkham-exp`
 - **Arkham (Visualizer)** — `currencies-analysis-arkham-viz`
 - **Blockscan Token** — `currencies-analysis-blockscan`
@@ -82,7 +82,7 @@ Use `python scripts/exploratores.py categories` for live counts and `... search 
 - **Basic Info** — `facebook-profile-basic`
 - **Biography** — `facebook-profile-bio`
 
-### `phoneint` (44)
+### `phoneint` (43)
 - **411.com** — `phoneint-411`
 - **AQL Network (UK)** — `phoneint-aql`
 - **Bing Search** — `phoneint-bing`
@@ -131,7 +131,7 @@ Use `python scripts/exploratores.py categories` for live counts and `... search 
 - **vk-ext-smat** — `vk-ext-smat`
 - **vk-ext-webarchive** — `vk-ext-webarchive`
 
-### `phoneus` (29)
+### `phoneus` (27)
 - **411** — `phoneus-411`
 - **800 Notes** — `phoneus-800notes`
 - **AdvBackground** — `phoneus-advbackground`
@@ -145,7 +145,7 @@ Use `python scripts/exploratores.py categories` for live counts and `... search 
 - **Bing** — `searchengines-bing`
 - **Bing News** — `searchengines-bingnews`
 
-### `email` (25)
+### `email` (23)
 - **AnalyzeID** — `email-analyzeid`
 - **Bing** — `email-bing`
 - **CleanTalk** — `email-cleantalk`

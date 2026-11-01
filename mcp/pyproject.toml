@@ -1,7 +1,7 @@
 [project]
 name = "claudii-exploratores-mcp"
 version = "1.0.0a1"
-description = "Claudii Exploratores — MCP server exposing the Exploratores OSINT toolkit (898 tools): indicator classification, curated OSINT search-URL building, IBAN validation and PII redaction."
+description = "Claudii Exploratores — MCP server exposing the Exploratores OSINT toolkit (874 tools): indicator classification, curated OSINT search-URL building, IBAN validation and PII redaction."
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "See repository LICENSE" }

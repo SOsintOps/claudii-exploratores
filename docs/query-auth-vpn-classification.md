@@ -1,8 +1,8 @@
 # OSINT query classification: authenticated Chrome profile & VPN
 
 > **Project:** Claudii-Exploratores (standalone)
-> **Scope:** Exploratores 3.4.1 catalog (`shared/catalog.json`) — **898 queries across 24 categories**
-> **Last updated:** 2026-07-10
+> **Scope:** Exploratores 3.4.1 catalog (`shared/catalog.json`) — **874 queries across 24 categories**
+> **Last updated:** 2026-11-01
 > **Status:** **desk** analysis (no live testing) — see disclaimer.
 
 ---
@@ -49,25 +49,25 @@ The goal is an operational guide on *what to prepare beforehand* for each search
 
 ## 4. Executive summary
 
-**Authentication** (898 queries)
+**Authentication** (874 queries)
 
 | Requirement bucket | Queries | Share |
 |---|---:|---:|
-| No login | 628 | 69% |
+| No login | 606 | 69% |
 | Social platform login (sock-puppet) | 138 | 15% |
 | Registration/account/paywall | 110 | 12% |
-| Free (optional account) | 22 | 2% |
+| Free (optional account) | 20 | 2% |
 
-**VPN / country** (898 queries)
+**VPN / country** (874 queries)
 
 | Requirement bucket | Queries | Share |
 |---|---:|---:|
-| No VPN required | 768 | 85% |
-| VPN US recommended | 94 | 10% |
+| No VPN required | 749 | 85% |
+| VPN US recommended | 89 | 10% |
 | VPN specific country recommended (SE/RU/NG/CA/IT/UK) | 27 | 3% |
 | Tor required (.onion) | 9 | 1% |
 
-**Confidence:** ● High 642 · ◑ Medium 211 · ○ Low 45
+**Confidence:** ● High 625 · ◑ Medium 206 · ○ Low 43
 
 **At a glance.** The large majority of queries (~69%) need no login and (~85%) work from any network exit: search engines, whois/DNS, block explorers, archives and public aggregators. Requirements cluster in clear blocks: **login** for social platforms (Facebook, Instagram, X, VK, LinkedIn, part of Telegram/Discord); **account/paywall** for infrastructure and breach-data services (Shodan, Censys, DeHashed, DomainTools, VirusTotal…); **geography** for US people-search and some national registries (Sweden, Russia); **Tor** for dark-web search engines.
 
@@ -84,7 +84,7 @@ The goal is an operational guide on *what to prepare beforehand* for each search
 
 ---
 
-## 6. Per-category detail (all 898 queries)
+## 6. Per-category detail (all 874 queries)
 
 Columns: **Service** · **Host** · **Auth (access)** · **VPN/country (access)** · **Conf.**
 Per-row OPSEC recommendations (identity and network) are in the companion CSV.
@@ -126,9 +126,9 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | GDark | `zb2jtkhnbvhkya3d46twv3g7lkobi4s62tjffqmafjibixk6pmq75did.onion` | No login | Tor required (.onion, not on clearnet) | ● |
 
 
-### Usernames  —  69 queries
+### Usernames  —  66 queries
 
-*Auth:* 44 no-login, 17 social-login, 4 account/paywall, 4 free-opt  ·  *VPN:* 66 no-VPN, 1 VPN-US, 2 VPN-country
+*Auth:* 42 no-login, 17 social-login, 4 account/paywall, 3 free-opt  ·  *VPN:* 63 no-VPN, 1 VPN-US, 2 VPN-country
 
 | Service | Host | Auth (access) | VPN/country (access) | Conf. |
 |---|---|---|---|:--:|
@@ -138,7 +138,6 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | Bing | `bing.com` | No login | No (global access) | ● |
 | CashApp User | `cash.app` | No login | No (global access) | ● |
 | Checko (RU) Search | `checko.ru` | No login | VPN Russia recommended (possible block/limit for foreign IPs) | ◑ |
-| RiskIQ Trackers Search | `community.riskiq.com` | No login | No (global access) | ● |
 | Telegago (Telegram Search) | `cse.google.com` | No login | No (global access) | ● |
 | Dehashed (Breaches) | `dehashed.com` | Paid account | No (global access) | ● |
 | Dehashed Emails (Breaches) | `dehashed.com` | Paid account | No (global access) | ● |
@@ -177,7 +176,6 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | PayPalMe User | `paypal.com` | No login | No (global access) | ● |
 | Arkham Entity | `platform.arkhamintelligence.com` | Free registration | No (global access) | ◑ |
 | ProfileDiscover | `profilediscover.com` | No login | No (global access) | ● |
-| PSBDMP (Pastes) | `psbdmp.ws` | No (free; account only for volume/extras) | No (global access) | ○ |
 | Reddit Profile | `reddit.com` | No login | No (global access) | ● |
 | Remitano Profile | `remitano.com` | No login | No (global access) | ● |
 | DomainTools WHOIS | `reversewhois.domaintools.com` | Account / paywall | No (global access) | ◑ |
@@ -191,7 +189,6 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | TikTok Profile | `tiktok.com` | Platform login: TikTok (to view content) | No (global access) | ◑ |
 | Tinder | `tinder.com` | Platform login: Tinder (to view content) | No (global access) | ● |
 | X User Search (Direct) | `twitter.com` | Platform login: X / Twitter (to view content) | No (global access) | ● |
-| Checkistan | `usernamechecker.checkistan.com` | No login | No (global access) | ● |
 | UserSearch.org | `usersearch.org` | No login | No (global access) | ● |
 | VK (Direct Search) | `vk.com` | Platform login: VK (to view content) | No (global access) | ● |
 | VK.me Profile | `vk.me` | Platform login: VK (to view content) | No (global access) | ● |
@@ -203,9 +200,9 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | Yandex | `yandex.com` | No login | No (global access) | ● |
 
 
-### Names / people  —  61 queries
+### Names / people  —  59 queries
 
-*Auth:* 53 no-login, 2 social-login, 4 account/paywall, 2 free-opt  ·  *VPN:* 23 no-VPN, 25 VPN-US, 13 VPN-country
+*Auth:* 51 no-login, 2 social-login, 4 account/paywall, 2 free-opt  ·  *VPN:* 23 no-VPN, 23 VPN-US, 13 VPN-country
 
 | Service | Host | Auth (access) | VPN/country (access) | Conf. |
 |---|---|---|---|:--:|
@@ -217,7 +214,6 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | Canada411 | `canada411.ca` | No login | Global access; Canada national data (VPN Canada only if blocked) | ○ |
 | Checko | `checko.ru` | No login | VPN Russia recommended (possible block/limit for foreign IPs) | ◑ |
 | Classmates | `classmates.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
-| RiskIQ - Address | `community.riskiq.com` | No login | No (global access) | ● |
 | Crunchbase - Person | `crunchbase.com` | Free registration for details | No (global access) | ◑ |
 | CyberBackground | `cyberbackgroundchecks.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | Eniro | `eniro.se` | No login | VPN Sweden recommended (possible block/limit for foreign IPs) | ◑ |
@@ -237,7 +233,6 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | Interpol - RedNotices | `interpol.int` | No login | No (global access) | ● |
 | Merinfo | `merinfo.se` | No login | VPN Sweden recommended (possible block/limit for foreign IPs) | ◑ |
 | Mr Koll | `mrkoll.se` | No login | VPN Sweden recommended (possible block/limit for foreign IPs) | ◑ |
-| Nuwber | `nuwber.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | OFAC Sanctions - Rec. | `ofac.treasury.gov` | No login | No (global access) | ● |
 | Open Corporates | `opencorporates.com` | No login | No (global access) | ● |
 | Open Sanctions | `opensanctions.org` | No login | No (global access) | ● |
@@ -260,21 +255,21 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | TruePeople | `truepeoplesearch.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | TruthFinder | `truthfinder.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | Twitter (Direct) | `twitter.com` | Platform login: X / Twitter (to view content) | No (global access) | ● |
-| UDRPsearch | `udrpsearch.com` | No login | No (global access) | ● |
+| CAC UDRP (respondent) | `udrp.adr.eu` | No login | No (global access) | ● |
 | UKPhoneBook (Name) | `ukphonebook.com` | No login | Global access; United Kingdom national data (VPN United Kingdom only if blocked) | ○ |
 | UKPhoneBook (Res.) | `ukphonebook.com` | No login | Global access; United Kingdom national data (VPN United Kingdom only if blocked) | ○ |
-| USA-Official | `usa-official.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | WebMii | `webmii.com` | No login | No (global access) | ● |
 | WhitePages | `whitepages.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
+| WIPO UDRP (respondent) | `wipo.int` | No login | No (global access) | ● |
 | YachtlyCrew | `yachtlycrew.com` | No login | No (global access) | ● |
 | Yasni | `yasni.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | Zabasearch | `zabasearch.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | Zauba Corp (Person) | `zaubacorp.com` | No login | No (global access) | ● |
 
 
-### Email  —  25 queries
+### Email  —  23 queries
 
-*Auth:* 13 no-login, 8 account/paywall, 4 free-opt  ·  *VPN:* 23 no-VPN, 2 VPN-US
+*Auth:* 12 no-login, 8 account/paywall, 3 free-opt  ·  *VPN:* 22 no-VPN, 1 VPN-US
 
 | Service | Host | Auth (access) | VPN/country (access) | Conf. |
 |---|---|---|---|:--:|
@@ -296,18 +291,16 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | LeakIX | `leakix.net` | Account for some results | No (global access) | ◑ |
 | MySpace | `myspace.com` | No login | No (global access) | ● |
 | Spycloud | `portal.spycloud.com` | Account (enterprise) | No (global access) | ● |
-| PSBDMP | `psbdmp.ws` | No (free; account only for volume/extras) | No (global access) | ○ |
 | ScamSearch | `scamsearch.io` | Registration | No (global access) | ◑ |
-| SpyTox | `spytox.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | ThatsThem | `thatsthem.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | Whoisology | `whoisology.com` | Account / paywall | No (global access) | ◑ |
 | Whoxy | `whoxy.com` | Account / API for results | No (global access) | ◑ |
 | Yandex | `yandex.com` | No login | No (global access) | ● |
 
 
-### Domains / infrastructure  —  149 queries
+### Domains / infrastructure  —  138 queries
 
-*Auth:* 112 no-login, 32 account/paywall, 5 free-opt  ·  *VPN:* 149 no-VPN
+*Auth:* 101 no-login, 32 account/paywall, 5 free-opt  ·  *VPN:* 138 no-VPN
 
 | Service | Host | Auth (access) | VPN/country (access) | Conf. |
 |---|---|---|---|:--:|
@@ -328,17 +321,11 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | HudsonRock | `cavalier.hudsonrock.com` | No login | No (global access) | ● |
 | CentralOps Dossier | `centralops.net` | No login | No (global access) | ● |
 | Spamhaus Check | `check.spamhaus.org` | No login | No (global access) | ● |
-| ThreatCrowd | `ci-threatcrowd.org` | No login | No (global access) | ● |
-| Columbus Subdomains | `columbus.elmasy.com` | No login | No (global access) | ● |
-| RiskIQ | `community.riskiq.com` | No login | No (global access) | ● |
-| RiskIQ | `community.riskiq.com` | No login | No (global access) | ● |
-| RiskIQ Search | `community.riskiq.com` | No login | No (global access) | ● |
 | CopyScape | `copyscape.com` | No login | No (global access) | ● |
 | CRT.sh | `crt.sh` | No login | No (global access) | ● |
 | Dehashed | `dehashed.com` | Paid account | No (global access) | ● |
 | DMNs.app | `dmns.app` | No login | No (global access) | ● |
 | DNPedia | `dnpedia.com` | No login | No (global access) | ● |
-| DomainApp DNS | `dns.domainapp.com` | No login | No (global access) | ● |
 | DNSDumpster | `dnsdumpster.com` | No login | No (global access) | ● |
 | AdSense Lookup | `dnslytics.com` | No login | No (global access) | ● |
 | DNSlytics | `dnslytics.com` | No login | No (global access) | ● |
@@ -380,7 +367,6 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | NetworksDB IPs | `networksdb.io` | No login | No (global access) | ● |
 | OFAC Sanctions | `ofac.treasury.gov` | No login | No (global access) | ● |
 | AlienVault OTX | `otx.alienvault.com` | No login | No (global access) | ● |
-| PhishCheck.me | `phishcheck.me` | No login | No (global access) | ● |
 | PublicWWW | `publiccom` | No login | No (global access) | ● |
 | PublicWWW | `publiccom` | No login | No (global access) | ● |
 | Pulsedive | `pulsedive.com` | No login | No (global access) | ● |
@@ -404,21 +390,18 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | Shodan Hostname | `shodan.io` | Free registration for full search | No (global access) | ◑ |
 | Shodan Query | `shodan.io` | Free registration for full search | No (global access) | ◑ |
 | SimilarWeb | `similarweb.com` | Registration for details | No (global access) | ◑ |
-| SiteMapper | `sitemapper.com` | No login | No (global access) | ● |
 | Netcraft Report | `sitereport.netcraft.com` | No login | No (global access) | ● |
 | Skymem | `skymem.info` | No login | No (global access) | ● |
 | Spam.org | `spam.org` | No login | No (global access) | ● |
 | SpyFu | `spyfu.com` | Account / paywall | No (global access) | ◑ |
-| SpyOnWeb | `spyonweb.com` | No login | No (global access) | ● |
 | SRA Search | `sra.org.uk` | No login | No (global access) | ● |
 | Stop Forum Spam | `stopforumspam.com` | No login | No (global access) | ● |
 | Blacklight | `themarkup.org` | No login | No (global access) | ● |
 | ThreatIntel | `threatintelligenceplatform.com` | No login | No (global access) | ● |
-| Mementoweb | `timetravel.mementoweb.org` | No login | No (global access) | ● |
 | Tiny.cc Expand | `tiny.cc` | No login | No (global access) | ● |
 | Triage (SMTP) | `tria.ge` | Registration | No (global access) | ◑ |
 | Triage (URL) | `tria.ge` | Registration | No (global access) | ◑ |
-| UDRPSearch | `udrpsearch.com` | No login | No (global access) | ● |
+| CAC UDRP | `udrp.adr.eu` | No login | No (global access) | ● |
 | URLScan | `urlscan.io` | No (free; account only for volume/extras) | No (global access) | ○ |
 | URLScan Page Search | `urlscan.io` | No (free; account only for volume/extras) | No (global access) | ○ |
 | urlscan.io General | `urlscan.io` | No (free; account only for volume/extras) | No (global access) | ○ |
@@ -438,8 +421,6 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | ViewDNS WHOIS | `viewdns.info` | No login | No (global access) | ● |
 | Search VirusTotal | `virustotal.com` | Free registration for full features | No (global access) | ◑ |
 | VirusTotal | `virustotal.com` | Free registration for full features | No (global access) | ◑ |
-| Archive Scan (CDX) | `web-archive-scan.com` | No login | No (global access) | ● |
-| Webscout | `web-scout.io` | No login | No (global access) | ● |
 | Archive URL Wildcard | `web.archive.org` | No login | No (global access) | ● |
 | Archive.org | `web.archive.org` | No login | No (global access) | ● |
 | WayBack Keyword | `web.archive.org` | No login | No (global access) | ● |
@@ -457,14 +438,15 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | Whois Archive (Whoxy) | `whoxy.com` | Account / API for results | No (global access) | ◑ |
 | Whoxy | `whoxy.com` | Account / API for results | No (global access) | ◑ |
 | WIPO Search | `wipo.int` | No login | No (global access) | ● |
+| WIPO UDRP | `wipo.int` | No login | No (global access) | ● |
 | WMTips | `wmtips.com` | No login | No (global access) | ● |
 | Robots.txt | `x` | No login | No (global access) | ● |
 | Yandex (Exact) | `yandex.com` | No login | No (global access) | ● |
 
 
-### IP / network  —  58 queries
+### IP / network  —  57 queries
 
-*Auth:* 46 no-login, 12 account/paywall  ·  *VPN:* 57 no-VPN, 1 VPN-US
+*Auth:* 45 no-login, 12 account/paywall  ·  *VPN:* 56 no-VPN, 1 VPN-US
 
 | Service | Host | Auth (access) | VPN/country (access) | Conf. |
 |---|---|---|---|:--:|
@@ -474,8 +456,6 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | Shodan Host | `beta.shodan.io` | Free registration | No (global access) | ◑ |
 | Shodan Raw | `beta.shodan.io` | Free registration | No (global access) | ◑ |
 | Bing | `bing.com` | No login | No (global access) | ● |
-| ThreatCrowd | `ci-threatcrowd.org` | No login | No (global access) | ● |
-| RiskIQ IP | `community.riskiq.com` | No login | No (global access) | ● |
 | Dehashed (IP) | `dehashed.com` | Paid account | No (global access) | ● |
 | DNSChecker | `dnschecker.org` | No login | No (global access) | ● |
 | Google | `google.com` | No login | No (global access) | ● |
@@ -495,6 +475,7 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | IP Details | `networksdb.io` | No login | No (global access) | ● |
 | Network Search | `networksdb.io` | No login | No (global access) | ● |
 | NetworksDB Range | `networksdb.io` | No login | No (global access) | ● |
+| AlienVault OTX | `otx.alienvault.com` | No login | No (global access) | ● |
 | Resolve.rs Geo | `resolve.rs` | No login | No (global access) | ● |
 | Robtex | `robtex.com` | No login | No (global access) | ● |
 | Censys Host | `search.censys.io` | Free registration | No (global access) | ◑ |
@@ -576,19 +557,19 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | OpenSanctions | `opensanctions.org` | No login | No (global access) | ● |
 | OpenSanctions | `opensanctions.org` | No login | No (global access) | ● |
 | Open Secrets | `opensecrets.org` | No login | No (global access) | ● |
-| MoneyLine | `politicalmoneyline.com` | No login | No (global access) | ● |
 | CAC (Nigeria) | `search.cac.gov.ng` | No login | Global access; Nigeria national data (VPN Nigeria only if blocked) | ○ |
 | Censys Certificates | `search.censys.io` | Free registration | No (global access) | ◑ |
-| FOIA | `search.foia.gov` | No login | No (global access) | ● |
-| FOIA | `search.foia.gov` | No login | No (global access) | ● |
+| FOIA | `search.usa.gov` | No login | No (global access) | ● |
+| FOIA | `search.usa.gov` | No login | No (global access) | ● |
 | Pacer | `search.uscourts.gov` | No login | No (global access) | ● |
 | Pacer | `search.uscourts.gov` | No login | No (global access) | ● |
 | SRA (UK Solicitors) | `sra.org.uk` | No login | No (global access) | ● |
 | Trellis | `trellis.law` | No login | No (global access) | ● |
 | Trellis | `trellis.law` | No login | No (global access) | ● |
-| UDRP Search | `udrpsearch.com` | No login | No (global access) | ● |
+| CAC UDRP | `udrp.adr.eu` | No login | No (global access) | ● |
 | Voter Records | `voterrecords.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | WIPO (Google) | `wipo.int` | No login | No (global access) | ● |
+| WIPO UDRP | `wipo.int` | No login | No (global access) | ● |
 | Zauba Corp (India) | `zaubacorp.com` | No login | No (global access) | ● |
 
 
@@ -622,9 +603,9 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | Zillow | `zillow.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 
 
-### US phone  —  29 queries
+### US phone  —  27 queries
 
-*Auth:* 26 no-login, 1 social-login, 2 account/paywall  ·  *VPN:* 29 VPN-US
+*Auth:* 24 no-login, 1 social-login, 2 account/paywall  ·  *VPN:* 27 VPN-US
 
 | Service | Host | Auth (access) | VPN/country (access) | Conf. |
 |---|---|---|---|:--:|
@@ -641,13 +622,11 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | InfoTracer | `infotracer.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | Facebook | `mbasic.facebook.com` | Platform login: Facebook (to view content) | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | Numpi | `numpi.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
-| Nuwber | `nuwber.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | OKCaller | `okcaller.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | YellowPages | `people.yellowpages.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | PeopleSearchNow | `peoplesearchnow.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | PhoneOwner | `phoneowner.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | SearchPeopleFree | `searchpeoplefree.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
-| Spytox | `spytox.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | Sync.me | `sync.me` | Login / app | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | ThatsThem | `thatsthem.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | TruePeople | `truepeoplesearch.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
@@ -659,15 +638,14 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | ZabaSearch | `zabasearch.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 
 
-### International phone  —  44 queries
+### International phone  —  43 queries
 
-*Auth:* 14 no-login, 1 social-login, 29 account/paywall  ·  *VPN:* 39 no-VPN, 2 VPN-US, 3 VPN-country
+*Auth:* 13 no-login, 1 social-login, 29 account/paywall  ·  *VPN:* 38 no-VPN, 2 VPN-US, 3 VPN-country
 
 | Service | Host | Auth (access) | VPN/country (access) | Conf. |
 |---|---|---|---|:--:|
 | 411.com | `411.com` | No login | VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA) | ◑ |
 | Bing Search | `bing.com` | No login | No (global access) | ● |
-| RiskIQ WHOIS | `community.riskiq.com` | No login | No (global access) | ● |
 | EmobileTracker (Manual) | `emobiletracker.com` | No login | No (global access) | ● |
 | EPIEOS | `epieos.com` | Free registration for full results | No (global access) | ◑ |
 | Facebook (Posts) | `facebook.com` | Platform login: Facebook (to view content) | No (global access) | ● |
@@ -898,9 +876,9 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | API Desc | `api.pullpush.io` | No login | No (global access) | ● |
 | PullPush Asc | `api.pullpush.io` | No login | No (global access) | ● |
 | PullPush Desc | `api.pullpush.io` | No login | No (global access) | ● |
+| Arctic Shift | `arctic-shift.photon-reddit.com` | No login | No (global access) | ● |
 | Boards | `boards.4chan.org` | No login | No (global access) | ● |
 | Threads | `boards.4chan.org` | No login | No (global access) | ● |
-| Archive | `camas.unddit.com` | No login | No (global access) | ● |
 | Disboard | `disboard.org` | No login | No (global access) | ● |
 | Invite | `discord.com` | Platform login: Discord (to view content) | No (global access) | ● |
 | Bee | `discord.gg` | Platform login: Discord (to view content) | No (global access) | ● |
@@ -1076,14 +1054,13 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | SlideShare | `slideshare.net` | No login | No (global access) | ● |
 
 
-### Cryptocurrencies  —  48 queries
+### Cryptocurrencies  —  46 queries
 
-*Auth:* 36 no-login, 11 account/paywall, 1 free-opt  ·  *VPN:* 48 no-VPN
+*Auth:* 34 no-login, 11 account/paywall, 1 free-opt  ·  *VPN:* 46 no-VPN
 
 | Service | Host | Auth (access) | VPN/country (access) | Conf. |
 |---|---|---|---|:--:|
 | Creation Date | `api.blockchair.com` | No login | No (global access) | ● |
-| BTC Validation | `bitcoin-e.org` | No login | No (global access) | ● |
 | BitcoinWhosWho | `bitcoinwhoswho.com` | No login | No (global access) | ● |
 | Blockchain.com | `blockchain.com` | No login | No (global access) | ● |
 | Satoshi Balance | `blockchain.info` | No login | No (global access) | ● |
@@ -1118,7 +1095,6 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | MetaSleuth (Poly) | `metasleuth.io` | Free registration | No (global access) | ◑ |
 | OKLink Explorer | `oklink.com` | No login | No (global access) | ● |
 | OKLink Visualisation | `oklink.com` | No login | No (global access) | ● |
-| OXT.me | `oxt.me` | No login | No (global access) | ● |
 | Phalcon Explorer | `phalcon.blocksec.com` | No (free; account only for volume/extras) | No (global access) | ○ |
 | Arkham (Explorer) | `platform.arkhamintelligence.com` | Free registration | No (global access) | ◑ |
 | Arkham (Visualizer) | `platform.arkhamintelligence.com` | Free registration | No (global access) | ◑ |

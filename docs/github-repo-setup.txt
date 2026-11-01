@@ -7,7 +7,7 @@ Use these values to configure the repo on github.com/SOsintOps/claudii-explorato
 1) ABOUT  (repo home page → gear icon next to "About")
 ------------------------------------------------------------
 Description:
-  OSINT suite for Claude — 898 curated OSINT tools as an Agent Skill + MCP server (classifier, URL builder, IBAN check, PII redactor). ALPHA.
+  OSINT suite for Claude — 874 curated OSINT tools as an Agent Skill + MCP server (classifier, URL builder, IBAN check, PII redactor). ALPHA.
 
 Website:
   https://github.com/SOsintOps/Exploratores

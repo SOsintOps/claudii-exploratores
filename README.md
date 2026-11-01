@@ -12,7 +12,7 @@ and to Claude. OSINT reconnaissance, ported for AI agents.
 [![license](https://img.shields.io/badge/license-AGPL--3.0-green)](LICENSE)
 [![python](https://img.shields.io/badge/python-3.9%2B-blue)](#-requirements)
 [![MCP](https://img.shields.io/badge/protocol-MCP-8A2BE2)](https://modelcontextprotocol.io)
-[![tools](https://img.shields.io/badge/OSINT%20tools-898-informational)](#-features)
+[![tools](https://img.shields.io/badge/OSINT%20tools-874-informational)](#-features)
 
 </div>
 
@@ -66,7 +66,7 @@ distributions:
    server (Python / FastMCP) exposing the same engine as callable tools for Claude
    Desktop or any MCP-compatible client.
 
-Both share one language-neutral core: a **catalog of 898 OSINT tools** across **24
+Both share one language-neutral core: a **catalog of 874 OSINT tools** across **24
 categories**, an indicator classifier, input validators, an offline IBAN verifier
 and a reversible PII redactor — all ported from the original toolkit.
 
@@ -77,12 +77,12 @@ and a reversible PII redactor — all ported from the original toolkit.
 
 ## ✨ Features
 
-- **898 curated OSINT tools** across 24 categories (people, usernames, email,
+- **874 curated OSINT tools** across 24 categories (people, usernames, email,
   domains, IP, phones, companies, crypto, IBAN, maps, media, social platforms…).
 - **Indicator classifier** — auto-detects whether a value is a domain, email, IP,
   username, person name, phone, coordinates, IBAN, crypto address, VIN, and more.
 - **Curated URL builder** — fills and URL-encodes only the tools that fit the
-  indicator, so you get a relevant, scoped set instead of 898 raw links.
+  indicator, so you get a relevant, scoped set instead of 874 raw links.
 - **Cross-platform pivoting** — one username fans out to the right search across
   every social/community platform that supports it.
 - **Offline IBAN verifier** — ISO 13616 mod-97 check against a 71-country table.
@@ -119,7 +119,7 @@ Claudii-Exploratores/
 ├── shared/                       # single source of truth for the engine + catalog
 │   ├── osint_core.py             # classifier, field builder, URL renderer
 │   ├── iban_tools.py, redactor.py, _iban_countries.py
-│   └── catalog.json              # 898 tools (generated)
+│   └── catalog.json              # 874 tools (generated)
 ├── scripts/                      # build, extraction & verification tooling
 │   ├── extract_catalog.js        # (re)generate catalog.json from the web toolkit
 │   ├── build_release.sh          # sync engine into skill+mcp, package .skill
@@ -214,7 +214,7 @@ python scripts/exploratores.py search "wayback"
 | --- | --- |
 | `classify_indicator(value)` | Detect the indicator type(s) with confidence scores. |
 | `build_osint_urls(value, indicator_type?, categories?, fields?, include_onion?, limit?)` | Curated OSINT search-URL set for the indicator. |
-| `search_catalog(query, limit?)` | Free-text search across the 898-tool catalog. |
+| `search_catalog(query, limit?)` | Free-text search across the 874-tool catalog. |
 | `list_categories()` | Categories and tool counts. |
 | `verify_iban(value)` | Offline IBAN validation (ISO 13616 mod-97). |
 | `redact_pii(text, only?, custom_patterns?)` | Redact PII, returning a reversible map. |

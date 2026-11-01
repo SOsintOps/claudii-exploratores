@@ -1,24 +1,24 @@
 {
   "meta": {
-    "source": "Exploratores OSINT Toolkit 3.4.1 (https://github.com/SOsintOps/Exploratores)",
-    "generated": "2026-07-08T01:00:52.473Z",
-    "total": 898,
+    "source": "Exploratores OSINT Toolkit 3.4.1 (https://github.com/SOsintOps/Exploratores), with the dead-link review of Exploratores 3.10.2-3.10.4 applied",
+    "generated": "2026-11-01T00:00:00.000Z",
+    "total": 874,
     "categories": {
       "searchengines": 28,
-      "domains": 149,
-      "names": 61,
-      "phoneus": 29,
-      "phoneint": 44,
+      "domains": 138,
+      "names": 59,
+      "phoneus": 27,
+      "phoneint": 43,
       "publiccompanyrecords": 56,
-      "email": 25,
-      "usernames": 69,
+      "email": 23,
+      "usernames": 66,
       "communities": 32,
       "maps": 32,
       "address": 22,
-      "currencies": 48,
+      "currencies": 46,
       "videos": 39,
       "keybase": 6,
-      "ip": 58,
+      "ip": 57,
       "docs": 30,
       "images": 16,
       "linkedin": 11,
@@ -507,8 +507,8 @@
       "id": "communities-reddit-archive",
       "category": "communities",
       "subcategory": "reddit",
-      "label": "Archive",
-      "urlTemplate": "https://camas.unddit.com/#{\"author\":\"{username}\"}",
+      "label": "Arctic Shift",
+      "urlTemplate": "https://arctic-shift.photon-reddit.com/search?fun=posts_search&author={username}",
       "validator": "getAndValidateRedditUser",
       "placeholders": [
         "{username}"
@@ -867,17 +867,6 @@
       ]
     },
     {
-      "id": "currencies-btc-oxtme",
-      "category": "currencies",
-      "subcategory": "btc",
-      "label": "OXT.me",
-      "urlTemplate": "https://oxt.me/address/{btc_address}",
-      "validator": "getAndValidateBtcAddress",
-      "placeholders": [
-        "{btc_address}"
-      ]
-    },
-    {
       "id": "currencies-btc-received",
       "category": "currencies",
       "subcategory": "btc",
@@ -894,17 +883,6 @@
       "subcategory": "btc",
       "label": "Satoshi Sent",
       "urlTemplate": "https://blockchain.info/q/getsentbyaddress/{btc_address}",
-      "validator": "getAndValidateBtcAddress",
-      "placeholders": [
-        "{btc_address}"
-      ]
-    },
-    {
-      "id": "currencies-btc-validation",
-      "category": "currencies",
-      "subcategory": "btc",
-      "label": "BTC Validation",
-      "urlTemplate": "https://bitcoin-e.org/validate/{btc_address}",
       "validator": "getAndValidateBtcAddress",
       "placeholders": [
         "{btc_address}"
@@ -1547,17 +1525,6 @@
       ]
     },
     {
-      "id": "domains-adsense-riskiq",
-      "category": "domains",
-      "subcategory": "adsense",
-      "label": "RiskIQ",
-      "urlTemplate": "https://community.riskiq.com/search/trackers?query={adsenseid}",
-      "validator": "getAndValidateAdsenseId",
-      "placeholders": [
-        "{adsenseid}"
-      ]
-    },
-    {
       "id": "domains-analytics-analyzeid",
       "category": "domains",
       "subcategory": "analytics",
@@ -1602,17 +1569,6 @@
       ]
     },
     {
-      "id": "domains-analytics-riskiq",
-      "category": "domains",
-      "subcategory": "analytics",
-      "label": "RiskIQ",
-      "urlTemplate": "https://community.riskiq.com/search/trackers?query={analyticsid}",
-      "validator": "getAndValidateAnalyticsId",
-      "placeholders": [
-        "{analyticsid}"
-      ]
-    },
-    {
       "id": "domains-archive-archiveit",
       "category": "domains",
       "subcategory": "archive",
@@ -1651,17 +1607,6 @@
       "subcategory": "archive",
       "label": "archive.ph",
       "urlTemplate": "http://archive.ph/{domain}",
-      "validator": "getAndValidateDomain",
-      "placeholders": [
-        "{domain}"
-      ]
-    },
-    {
-      "id": "domains-archive-archivescan",
-      "category": "domains",
-      "subcategory": "archive",
-      "label": "Archive Scan (CDX)",
-      "urlTemplate": "http://web-archive-scan.com/archive/search?q={domain}",
       "validator": "getAndValidateDomain",
       "placeholders": [
         "{domain}"
@@ -1728,17 +1673,6 @@
       "subcategory": "archive",
       "label": "Google Cache",
       "urlTemplate": "http://www.google.com/search?q=cache:{domain}",
-      "validator": "getAndValidateDomain",
-      "placeholders": [
-        "{domain}"
-      ]
-    },
-    {
-      "id": "domains-archive-mementoweb",
-      "category": "domains",
-      "subcategory": "archive",
-      "label": "Mementoweb",
-      "urlTemplate": "http://timetravel.mementoweb.org/memento/*/{domain}",
       "validator": "getAndValidateDomain",
       "placeholders": [
         "{domain}"
@@ -1886,17 +1820,6 @@
       ]
     },
     {
-      "id": "domains-dns-domainapp",
-      "category": "domains",
-      "subcategory": "dns",
-      "label": "DomainApp DNS",
-      "urlTemplate": "https://dns.domainapp.com/?q={domain}",
-      "validator": "getAndValidateDomain",
-      "placeholders": [
-        "{domain}"
-      ]
-    },
-    {
       "id": "domains-dns-domaintools",
       "category": "domains",
       "subcategory": "dns",
@@ -2001,17 +1924,6 @@
       "subcategory": "dns",
       "label": "Robtex",
       "urlTemplate": "https://www.robtex.com/dns-lookup/{domain}",
-      "validator": "getAndValidateDomain",
-      "placeholders": [
-        "{domain}"
-      ]
-    },
-    {
-      "id": "domains-dns-subdomains-columbus",
-      "category": "domains",
-      "subcategory": "dns",
-      "label": "Columbus Subdomains",
-      "urlTemplate": "https://columbus.elmasy.com/search?q=domain%3D{domain}",
       "validator": "getAndValidateDomain",
       "placeholders": [
         "{domain}"
@@ -2392,28 +2304,6 @@
       ]
     },
     {
-      "id": "domains-profile-spyonweb",
-      "category": "domains",
-      "subcategory": "profile",
-      "label": "SpyOnWeb",
-      "urlTemplate": "http://spyonweb.com/{domain}",
-      "validator": "getAndValidateDomain",
-      "placeholders": [
-        "{domain}"
-      ]
-    },
-    {
-      "id": "domains-profile-webscout",
-      "category": "domains",
-      "subcategory": "profile",
-      "label": "Webscout",
-      "urlTemplate": "https://web-scout.io/results?q={domain}",
-      "validator": "getAndValidateDomain",
-      "placeholders": [
-        "{domain}"
-      ]
-    },
-    {
       "id": "domains-profile-wmtips",
       "category": "domains",
       "subcategory": "profile",
@@ -2505,8 +2395,19 @@
       "id": "domains-records-udrp",
       "category": "domains",
       "subcategory": "records",
-      "label": "UDRPSearch",
-      "urlTemplate": "https://www.udrpsearch.com/search?query={domain}",
+      "label": "WIPO UDRP",
+      "urlTemplate": "https://www.wipo.int/amc/en/domains/search/fulltext_decisions.jsp?q={domain}",
+      "validator": "getAndValidateDomain",
+      "placeholders": [
+        "{domain}"
+      ]
+    },
+    {
+      "id": "domains-records-udrp-cac",
+      "category": "domains",
+      "subcategory": "records",
+      "label": "CAC UDRP",
+      "urlTemplate": "https://udrp.adr.eu/decisions/list?grid-filter%5Bdomains%5D={domain}",
       "validator": "getAndValidateDomain",
       "placeholders": [
         "{domain}"
@@ -2810,33 +2711,11 @@
       ]
     },
     {
-      "id": "domains-sec-phishcheck",
-      "category": "domains",
-      "subcategory": "sec",
-      "label": "PhishCheck.me",
-      "urlTemplate": "https://phishcheck.me/check_url/{domain}",
-      "validator": "getAndValidateDomain",
-      "placeholders": [
-        "{domain}"
-      ]
-    },
-    {
       "id": "domains-sec-pulsedive",
       "category": "domains",
       "subcategory": "sec",
       "label": "Pulsedive",
       "urlTemplate": "https://pulsedive.com/indicator/?value={domain}",
-      "validator": "getAndValidateDomain",
-      "placeholders": [
-        "{domain}"
-      ]
-    },
-    {
-      "id": "domains-sec-riskiq",
-      "category": "domains",
-      "subcategory": "sec",
-      "label": "RiskIQ Search",
-      "urlTemplate": "https://community.riskiq.com/search/{domain}",
       "validator": "getAndValidateDomain",
       "placeholders": [
         "{domain}"
@@ -2914,17 +2793,6 @@
       "subcategory": "sec",
       "label": "Stop Forum Spam",
       "urlTemplate": "https://www.stopforumspam.com/search?q={domain}",
-      "validator": "getAndValidateDomain",
-      "placeholders": [
-        "{domain}"
-      ]
-    },
-    {
-      "id": "domains-sec-threatcrowd",
-      "category": "domains",
-      "subcategory": "sec",
-      "label": "ThreatCrowd",
-      "urlTemplate": "https://ci-www.threatcrowd.org/domain.php?domain={domain}",
       "validator": "getAndValidateDomain",
       "placeholders": [
         "{domain}"
@@ -3090,17 +2958,6 @@
       "subcategory": "seo",
       "label": "SimilarWeb",
       "urlTemplate": "https://www.similarweb.com/website/{domain}",
-      "validator": "getAndValidateDomain",
-      "placeholders": [
-        "{domain}"
-      ]
-    },
-    {
-      "id": "domains-seo-sitemapper",
-      "category": "domains",
-      "subcategory": "seo",
-      "label": "SiteMapper",
-      "urlTemplate": "https://www.sitemapper.com/#/{domain}",
       "validator": "getAndValidateDomain",
       "placeholders": [
         "{domain}"
@@ -3338,17 +3195,6 @@
       ]
     },
     {
-      "id": "email-psbdmp",
-      "category": "email",
-      "subcategory": null,
-      "label": "PSBDMP",
-      "urlTemplate": "https://psbdmp.ws/api/search/{email}",
-      "validator": "getAndValidateEmail",
-      "placeholders": [
-        "{email}"
-      ]
-    },
-    {
       "id": "email-scamsearch",
       "category": "email",
       "subcategory": null,
@@ -3365,17 +3211,6 @@
       "subcategory": null,
       "label": "Spycloud",
       "urlTemplate": "https://portal.spycloud.com/endpoint/enriched-stats/{email}",
-      "validator": "getAndValidateEmail",
-      "placeholders": [
-        "{email}"
-      ]
-    },
-    {
-      "id": "email-spytox",
-      "category": "email",
-      "subcategory": null,
-      "label": "SpyTox",
-      "urlTemplate": "https://spytox.com/people/search?email={email}",
       "validator": "getAndValidateEmail",
       "placeholders": [
         "{email}"
@@ -4589,6 +4424,17 @@
       ]
     },
     {
+      "id": "ip-security-alienvault",
+      "category": "ip",
+      "subcategory": "security",
+      "label": "AlienVault OTX",
+      "urlTemplate": "https://otx.alienvault.com/indicator/ip/{ip}",
+      "validator": "getAndValidateIpAddress",
+      "placeholders": [
+        "{ip}"
+      ]
+    },
+    {
       "id": "ip-security-censys",
       "category": "ip",
       "subcategory": "security",
@@ -4626,7 +4472,7 @@
       "category": "ip",
       "subcategory": "security",
       "label": "IKWYD Torrents",
-      "urlTemplate": "http://iknowwhatyoudownload.com/en/peer/?ip={ip}",
+      "urlTemplate": "https://iknowwhatyoudownload.com/en/peer/?ip={ip}",
       "validator": "getAndValidateIpAddress",
       "placeholders": [
         "{ip}"
@@ -4677,17 +4523,6 @@
       ]
     },
     {
-      "id": "ip-security-riskiq",
-      "category": "ip",
-      "subcategory": "security",
-      "label": "RiskIQ IP",
-      "urlTemplate": "https://community.riskiq.com/search/{ip}",
-      "validator": "getAndValidateIpAddress",
-      "placeholders": [
-        "{ip}"
-      ]
-    },
-    {
       "id": "ip-security-securitytrails",
       "category": "ip",
       "subcategory": "security",
@@ -4704,17 +4539,6 @@
       "subcategory": "security",
       "label": "Stop Forum Spam",
       "urlTemplate": "https://www.stopforumspam.com/search/{ip}",
-      "validator": "getAndValidateIpAddress",
-      "placeholders": [
-        "{ip}"
-      ]
-    },
-    {
-      "id": "ip-security-threatcrowd",
-      "category": "ip",
-      "subcategory": "security",
-      "label": "ThreatCrowd",
-      "urlTemplate": "https://ci-www.threatcrowd.org/ip.php?ip={ip}",
       "validator": "getAndValidateIpAddress",
       "placeholders": [
         "{ip}"
@@ -5797,17 +5621,6 @@
       ]
     },
     {
-      "id": "names-riskiq",
-      "category": "names",
-      "subcategory": null,
-      "label": "RiskIQ - Address",
-      "urlTemplate": "https://community.riskiq.com/search/trackers?query={fullname}",
-      "validator": "getAndValidateNames",
-      "placeholders": [
-        "{fullname}"
-      ]
-    },
-    {
       "id": "names-rusfinder",
       "category": "names",
       "subcategory": null,
@@ -5922,8 +5735,19 @@
       "id": "names-udrp",
       "category": "names",
       "subcategory": null,
-      "label": "UDRPsearch",
-      "urlTemplate": "https://www.udrpsearch.com/search?query={fullname}&search=parties",
+      "label": "WIPO UDRP (respondent)",
+      "urlTemplate": "https://www.wipo.int/amc/en/domains/statistics/filing_party.jsp?party=R&search={fullname}",
+      "validator": "getAndValidateNames",
+      "placeholders": [
+        "{fullname}"
+      ]
+    },
+    {
+      "id": "names-udrp-cac",
+      "category": "names",
+      "subcategory": "udrp",
+      "label": "CAC UDRP (respondent)",
+      "urlTemplate": "https://udrp.adr.eu/decisions/list?grid-filter%5Brespondents%5D={fullname}",
       "validator": "getAndValidateNames",
       "placeholders": [
         "{fullname}"
@@ -6044,17 +5868,6 @@
       ]
     },
     {
-      "id": "names-us-nuwber",
-      "category": "names",
-      "subcategory": "us",
-      "label": "Nuwber",
-      "urlTemplate": "https://nuwber.com/search?name={fullname}",
-      "validator": "getAndValidateNames",
-      "placeholders": [
-        "{fullname}"
-      ]
-    },
-    {
       "id": "names-us-peoplebyname",
       "category": "names",
       "subcategory": "us",
@@ -6162,18 +5975,6 @@
       "subcategory": "us",
       "label": "TruthFinder",
       "urlTemplate": "https://www.truthfinder.com/results/?firstName={firstname}&lastName={lastname}&state=ALL",
-      "validator": "getAndValidateNames",
-      "placeholders": [
-        "{firstname}",
-        "{lastname}"
-      ]
-    },
-    {
-      "id": "names-us-usaofficial",
-      "category": "names",
-      "subcategory": "us",
-      "label": "USA-Official",
-      "urlTemplate": "https://usa-official.com/{firstname}-{lastname}",
       "validator": "getAndValidateNames",
       "placeholders": [
         "{firstname}",
@@ -6639,17 +6440,6 @@
       ]
     },
     {
-      "id": "phoneint-riskiq",
-      "category": "phoneint",
-      "subcategory": null,
-      "label": "RiskIQ WHOIS",
-      "urlTemplate": "https://community.riskiq.com/search/whois/phone?query=+{e164}",
-      "validator": "getAndValidateIntlPhone",
-      "placeholders": [
-        "{e164}"
-      ]
-    },
-    {
       "id": "phoneint-syncme",
       "category": "phoneint",
       "subcategory": null,
@@ -6868,17 +6658,6 @@
       ]
     },
     {
-      "id": "phoneus-nuwber",
-      "category": "phoneus",
-      "subcategory": null,
-      "label": "Nuwber",
-      "urlTemplate": "https://nuwber.com/search/phone?phone={full}",
-      "validator": "getAndValidateUsPhone",
-      "placeholders": [
-        "{full}"
-      ]
-    },
-    {
       "id": "phoneus-okcaller",
       "category": "phoneus",
       "subcategory": null,
@@ -6917,17 +6696,6 @@
       "subcategory": null,
       "label": "SearchPeopleFree",
       "urlTemplate": "https://www.searchpeoplefree.com/phone-lookup/{full_dash}",
-      "validator": "getAndValidateUsPhone",
-      "placeholders": [
-        "{full_dash}"
-      ]
-    },
-    {
-      "id": "phoneus-spytox",
-      "category": "phoneus",
-      "subcategory": null,
-      "label": "Spytox",
-      "urlTemplate": "https://www.spytox.com/people/search?phone={full_dash}",
       "validator": "getAndValidateUsPhone",
       "placeholders": [
         "{full_dash}"
@@ -7152,7 +6920,7 @@
       "category": "publiccompanyrecords",
       "subcategory": "company",
       "label": "FOIA",
-      "urlTemplate": "https://search.foia.gov/search?affiliate=foia.gov&query={companyname}",
+      "urlTemplate": "https://search.usa.gov/search?affiliate=foia.gov&query={companyname}",
       "validator": "getAndValidateCompanyName",
       "placeholders": [
         "{companyname}"
@@ -7334,8 +7102,19 @@
       "id": "publiccompanyrecords-company-udrp",
       "category": "publiccompanyrecords",
       "subcategory": "company",
-      "label": "UDRP Search",
-      "urlTemplate": "https://www.udrpsearch.com/search?query={companyname}",
+      "label": "WIPO UDRP",
+      "urlTemplate": "https://www.wipo.int/amc/en/domains/search/fulltext_decisions.jsp?q={companyname}",
+      "validator": "getAndValidateCompanyName",
+      "placeholders": [
+        "{companyname}"
+      ]
+    },
+    {
+      "id": "publiccompanyrecords-company-udrp-cac",
+      "category": "publiccompanyrecords",
+      "subcategory": "company",
+      "label": "CAC UDRP",
+      "urlTemplate": "https://udrp.adr.eu/decisions/list?grid-filter%5Bsearch_in_text%5D={companyname}",
       "validator": "getAndValidateCompanyName",
       "placeholders": [
         "{companyname}"
@@ -7423,7 +7202,7 @@
       "category": "publiccompanyrecords",
       "subcategory": "officer",
       "label": "FOIA",
-      "urlTemplate": "https://search.foia.gov/search?affiliate=foia.gov&query={officername}",
+      "urlTemplate": "https://search.usa.gov/search?affiliate=foia.gov&query={officername}",
       "validator": "getAndValidateOfficerName",
       "placeholders": [
         "{officername}"
@@ -7464,17 +7243,6 @@
       "subcategory": "officer",
       "label": "LittleSis",
       "urlTemplate": "https://littlesis.org/search?q={officername}",
-      "validator": "getAndValidateOfficerName",
-      "placeholders": [
-        "{officername}"
-      ]
-    },
-    {
-      "id": "publiccompanyrecords-officer-moneyline",
-      "category": "publiccompanyrecords",
-      "subcategory": "officer",
-      "label": "MoneyLine",
-      "urlTemplate": "http://politicalmoneyline.com/tr/tr_MG_IndivDonor.aspx?sMP=1&sText={officername}&sCycle=2020",
       "validator": "getAndValidateOfficerName",
       "placeholders": [
         "{officername}"
@@ -8011,17 +7779,6 @@
       ]
     },
     {
-      "id": "usernames-checkistan",
-      "category": "usernames",
-      "subcategory": null,
-      "label": "Checkistan",
-      "urlTemplate": "https://usernamechecker.checkistan.com/#{username}",
-      "validator": "getAndValidateUsername",
-      "placeholders": [
-        "{username}"
-      ]
-    },
-    {
       "id": "usernames-dehashed",
       "category": "usernames",
       "subcategory": null,
@@ -8396,17 +8153,6 @@
       ]
     },
     {
-      "id": "usernames-psbdmp",
-      "category": "usernames",
-      "subcategory": null,
-      "label": "PSBDMP (Pastes)",
-      "urlTemplate": "https://psbdmp.ws/api/search/{username}",
-      "validator": "getAndValidateUsername",
-      "placeholders": [
-        "{username}"
-      ]
-    },
-    {
       "id": "usernames-reddit-profile",
       "category": "usernames",
       "subcategory": "reddit",
@@ -8423,17 +8169,6 @@
       "subcategory": null,
       "label": "Remitano Profile",
       "urlTemplate": "https://remitano.com/btc/ng/profile/{username}",
-      "validator": "getAndValidateUsername",
-      "placeholders": [
-        "{username}"
-      ]
-    },
-    {
-      "id": "usernames-riskiq",
-      "category": "usernames",
-      "subcategory": null,
-      "label": "RiskIQ Trackers Search",
-      "urlTemplate": "https://community.riskiq.com/search/trackers?query={username}",
       "validator": "getAndValidateUsername",
       "placeholders": [
         "{username}"

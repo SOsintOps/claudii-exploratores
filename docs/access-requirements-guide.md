@@ -1,6 +1,8 @@
 # Access requirements — do I need an account, a VPN, or Tor?
 
-> Companion guide to the Exploratores query catalog. Last updated: 2026-07-10.
+> Companion guide to the Exploratores query catalog. Last updated: 2026-07-10; revised 2026-11-01.
+>
+> **2026-11-01 revision:** the 22 sources removed from the catalog in the Exploratores 3.10.2–3.10.4 dead-link review (RiskIQ, ThreatCrowd, psbdmp, Nuwber, SpyTox, SpyOnWeb, OXT.me, UDRPSearch and others) are dropped from the tables and the counts below are recomputed. The sources added in that review (Arctic Shift, WIPO's new search pages, the CAC UDRP database, search.usa.gov for FOIA) were not part of the 2026-07-10 live verification and are not listed here; see `docs/query_classification.csv` for their desk classification.
 
 This guide tells you, for each source behind the catalog's queries, whether you need to **log in**, whether a **VPN** (and which country) helps or is required, and which sources are **Tor-only**. Requirements are per *source* (host); the **#q** column is how many catalog queries use that source.
 
@@ -25,11 +27,11 @@ This guide tells you, for each source behind the catalog's queries, whether you 
 | --- | --- | --- |
 | Account required | 34 | 176 |
 | Account recommended | 15 | 89 |
-| Account not needed | 254 | 491 |
+| Account not needed | 253 | 494 |
 | VPN required (a country) | 19 | 26 |
 | Tor required (.onion) | 9 | 9 |
-| Bot-protection seen (VPN may help) | 40 | 86 |
-| Unverified | 78 | 141 |
+| Bot-protection seen (VPN may help) | 39 | 84 |
+| Unverified | 64 | 115 |
 
 ---
 
@@ -133,7 +135,7 @@ This guide tells you, for each source behind the catalog's queries, whether you 
 | www.tor66sewebgixwhcqfnp5inzp5x5uohhdy3kvtnyfxc2e5mxiuh34iid.onion | searchengines | 1 |  |
 | zb2jtkhnbvhkya3d46twv3g7lkobi4s62tjffqmafjibixk6pmq75did.onion | searchengines | 1 |  |
 
-## 🧭 Bot-protection seen during testing (a VPN/other exit may help)  (40 sources, 86 queries)
+## 🧭 Bot-protection seen during testing (a VPN/other exit may help)  (39 sources, 84 queries)
 
 | Source | Category | #q | Detail |
 | --- | --- | --- | --- |
@@ -148,7 +150,6 @@ This guide tells you, for each source behind the catalog's queries, whether you 
 | www.truepeoplesearch.com | address | 3 | N/A |
 | www.whitepages.com | address | 3 | N/A |
 | nigeria24.me | publiccompanyrecords | 2 | N/A |
-| nuwber.com | names | 2 | N/A |
 | www.crunchbase.com | names | 2 | N/A |
 | www.yandex.com | linkedin | 2 | N/A |
 | www.zaubacorp.com | names | 2 | N/A |
@@ -178,7 +179,7 @@ This guide tells you, for each source behind the catalog's queries, whether you 
 | www.vindecoderz.com | vehicles | 1 | N/A |
 | zapper.fi | currencies | 1 | N/A |
 
-## ✅ No account, no VPN — works as-is  (223 sources, 455 queries)
+## ✅ No account, no VPN — works as-is  (222 sources, 458 queries)
 
 Distribution by catalog category:
 
@@ -277,7 +278,7 @@ Distribution by catalog category:
 | hypestat.com | domains | 1 |
 | networksdb.io | domains | 6 |
 | ofac.treasury.gov | domains | 5 |
-| otx.alienvault.com | domains | 2 |
+| otx.alienvault.com | domains | 3 |
 | publicwww.com | domains | 2 |
 | research.domaintools.com | domains | 2 |
 | searchdns.netcraft.com | domains | 1 |
@@ -309,7 +310,7 @@ Distribution by catalog category:
 | www.who.is | domains | 2 |
 | www.whois.com | domains | 3 |
 | www.whoxy.com | domains | 2 |
-| www.wipo.int | domains | 2 |
+| www.wipo.int | domains | 5 |
 | {domain} | domains | 1 |
 | api.protonmail.ch | email | 1 |
 | bing.com | email | 3 |
@@ -413,7 +414,6 @@ Distribution by catalog category:
 | remitano.com | usernames | 1 |
 | steamcommunity.com | usernames | 1 |
 | steamid.uk | usernames | 1 |
-| usernamechecker.checkistan.com | usernames | 1 |
 | usersearch.org | usernames | 1 |
 | whatsmyname.app | usernames | 1 |
 | www.namechecker.org | usernames | 1 |
@@ -436,12 +436,11 @@ Distribution by catalog category:
 
 </details>
 
-## ❔ Unverified (probe inconclusive — treat with caution)  (69 sources, 132 queries)
+## ❔ Unverified (probe inconclusive — treat with caution)  (55 sources, 106 queries)
 
 | Source | Category | #q | Detail |
 | --- | --- | --- | --- |
 | yandex.com | domains | 15 | N/A |
-| community.riskiq.com | domains | 7 | Account likely (PassiveTotal/Microsoft) — manual |
 | thatsthem.com | email | 6 | N/A |
 | www.fastpeoplesearch.com | address | 4 | N/A |
 | www.tineye.com | images | 4 | N/A |
@@ -450,15 +449,10 @@ Distribution by catalog category:
 | www.advancedbackgroundchecks.com | address | 3 | N/A |
 | www.searchpeoplefree.com | address | 3 | N/A |
 | www.truepeoplesearch.com | address | 3 | N/A |
-| www.udrpsearch.com | domains | 3 | n/a (unreachable) |
 | www.whitepages.com | address | 3 | N/A |
-| ci-www.threatcrowd.org | domains | 2 | Unknown |
 | memory.lol | x | 2 | Unknown |
 | nigeria24.me | publiccompanyrecords | 2 | N/A |
-| nuwber.com | names | 2 | N/A |
-| psbdmp.ws | email | 2 | Unknown |
 | resolve.rs | domains | 2 | Unknown |
-| search.foia.gov | publiccompanyrecords | 2 | Unknown |
 | search.uscourts.gov | publiccompanyrecords | 2 | Unknown |
 | services.gisgraphy.com | address | 2 | Unknown |
 | website.informer.com | domains | 2 | Unknown |
@@ -481,15 +475,9 @@ Distribution by catalog category:
 | ng-check.com | publiccompanyrecords | 1 | N/A |
 | numpi.com | phoneus | 1 | N/A |
 | openpayrolls.com | publiccompanyrecords | 1 | N/A |
-| oxt.me | currencies | 1 | nav-error |
-| phishcheck.me | domains | 1 | nav-error |
 | phoneowner.com | phoneus | 1 | N/A |
-| politicalmoneyline.com | publiccompanyrecords | 1 | nav-error |
 | profilediscover.com | usernames | 1 | loaded-thin |
 | search.cac.gov.ng | publiccompanyrecords | 1 | N/A |
-| spyonweb.com | domains | 1 | nav-error |
-| spytox.com | email | 1 | nav-blocked |
-| timetravel.mementoweb.org | domains | 1 | nav-error |
 | tinder.com | usernames | 1 | n/a (nav-blocked) |
 | viz.greynoise.io | ip | 1 | N/A |
 | voterrecords.com | publiccompanyrecords | 1 | N/A |
@@ -503,9 +491,7 @@ Distribution by catalog category:
 | www.merinfo.se | names | 1 | nav-blocked |
 | www.peoplebyname.com | names | 1 | N/A |
 | www.peoplefinders.com | address | 1 | nav-error |
-| www.sitemapper.com | domains | 1 | nav-error |
 | www.skymem.info | domains | 1 | N/A |
-| www.spytox.com | phoneus | 1 | nav-error |
 | www.usa-people-search.com | address | 1 | N/A |
 | www.vindecoderz.com | vehicles | 1 | N/A |
 | zapper.fi | currencies | 1 | N/A |
