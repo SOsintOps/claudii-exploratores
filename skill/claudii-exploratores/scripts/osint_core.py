@@ -40,6 +40,49 @@ def load_catalog(path: Optional[str | Path] = None) -> Dict[str, Any]:
     return _CATALOG_CACHE
 
 
+_ACCESS: Optional[Dict[str, Any]] = None
+
+
+def access_map() -> Dict[str, Any]:
+    """Per-host access requirements (shared/access.json), empty if missing."""
+    global _ACCESS
+    if _ACCESS is None:
+        path = Path(__file__).with_name("access.json")
+        _ACCESS = json.loads(path.read_text(encoding="utf-8")).get("hosts", {}) if path.exists() else {}
+    return _ACCESS
+
+
+def access_for(url_template: str) -> Optional[Dict[str, Any]]:
+    """Access requirements for the host behind a URL template, if any are known."""
+    from urllib.parse import urlparse
+
+    host = (urlparse(_PLACEHOLDER_RE.sub("x", url_template)).hostname or "").lower()
+    if host.startswith("www."):
+        host = host[4:]
+    return access_map().get(host)
+
+
+def access_note(acc: Optional[Dict[str, Any]]) -> Optional[str]:
+    """One-line human warning for an access record, or None if nothing to flag."""
+    if not acc:
+        return None
+    notes = []
+    vpn, cc = acc.get("vpn"), acc.get("country")
+    if vpn == "required":
+        notes.append(f"GEO-LOCKED: needs an exit IP in {cc} (VPN)")
+    elif vpn == "recommended":
+        notes.append(f"may need an exit IP in {cc} (VPN recommended, not verified)")
+    elif vpn == "tor":
+        notes.append("Tor only (.onion)")
+    if acc.get("account") == "required":
+        notes.append("account required")
+    elif acc.get("account") == "recommended":
+        notes.append("account recommended")
+    if acc.get("bot_protection"):
+        notes.append("bot protection seen")
+    return "; ".join(notes) or None
+
+
 def entries() -> List[Dict[str, Any]]:
     return load_catalog()["entries"]
 
@@ -55,12 +98,19 @@ def categories() -> Dict[str, int]:
 _ENCODE_SAFE = "-_.!~*'()"
 
 
-def encode_uri_component(value: str) -> str:
+# encodeURI also keeps the URI reserved characters. Only {urn} uses it: Normattiva
+# reads the raw URN from the query string and rejects an encoded one (same rule as
+# Exploratores main.js).
+_ENCODE_URI_SAFE = _ENCODE_SAFE + ";,/?:@&=+$#"
+_RAW_URI_FIELDS = {"urn"}
+
+
+def encode_uri_component(value: str, safe: str = _ENCODE_SAFE) -> str:
     out = []
     for ch in value:
         if ch.isalnum() and ch.isascii():
             out.append(ch)
-        elif ch in _ENCODE_SAFE:
+        elif ch in safe:
             out.append(ch)
         else:
             out.append("".join(f"%{b:02X}" for b in ch.encode("utf-8")))
@@ -108,6 +158,10 @@ def _parse_url_subtypes(query: str) -> List[Dict[str, Any]]:
 
 # (type, compiled pattern, score, optional precheck)
 _UNIQUE_RULES = [
+    ("NORMATTIVA_URN", re.compile(
+        r"^urn:nir:(?:[a-z.]+:[a-z.]+:\d{4}(?:-\d{2}-\d{2})?;\d+(?:-[a-z]+)?|stato:costituzione)"
+        r"(?:~art[0-9a-z-]+)?$"), 1.0, None),
+    ("CURIA_CASE", re.compile(r"^[CTF]-\d{1,4}/\d{2}(?: P| PPU| R)?$", re.I), 1.0, None),
     ("IBAN", re.compile(r"^[A-Z]{2}\d{2}[A-Z\d]{11,30}$", re.I), 1.0, None),
     ("BTC_ADDRESS", re.compile(r"^(bc1|[13])[a-zA-HJ-NP-Z0-9]{25,39}$"), 1.0, None),
     ("CRYPTO_ETH", re.compile(r"^0x[a-fA-F0-9]{40}$"), 1.0, None),
@@ -121,6 +175,7 @@ _UNIQUE_RULES = [
     ("IPV4", re.compile(r"^(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)$"), 0.95, None),
     ("EMAIL", re.compile(r"^[^\s@]+@[^\s@]+\.[^\s@]+$"), 0.95, None),
     ("PHONE_E164", re.compile(r"^\+\d{7,15}$"), 0.9, None),
+    ("HASHTAG", re.compile(r"^#[\w.]{1,100}$"), 0.9, None),
     ("YOUTUBE_CHANNEL_ID", re.compile(r"^UC[a-zA-Z0-9_-]{22}$"), 0.9, None),
     ("VEHICLE_VIN", re.compile(r"^[A-HJ-NPR-Z0-9]{17}$", re.I), 0.85, None),
     ("URL", re.compile(r"^(https?://)?([\da-z\.-]+)\.([a-z\.]{2,6})([/\w \.-]*)*/?$", re.I), 0.8,
@@ -129,6 +184,9 @@ _UNIQUE_RULES = [
 ]
 
 _AMBIGUOUS_RULES = [
+    ("EU_VAT", re.compile(
+        r"^(AT|BE|BG|CY|CZ|DE|DK|EE|EL|GR|ES|FI|FR|HR|HU|IE|IT|LT|LU|LV|MT|NL|PL|PT|RO|SE|SI|SK|XI)"
+        r"(?=[A-Z0-9]*\d)[A-Z0-9]{8,12}$"), 0.7, None),
     ("COORDINATES", re.compile(r"^-?\d{1,3}(?:\.\d+)?,\s*-?\d{1,3}(?:\.\d+)?$"), 0.75, None),
     ("YOUTUBE_VIDEO_ID", re.compile(r"^[a-zA-Z0-9_-]{11}$"), 0.7, None),
     ("USERNAME", re.compile(r"^[a-zA-Z0-9_.-]{3,24}$"), 0.6, lambda q: " " not in q),
@@ -186,7 +244,7 @@ TYPE_TO_CATEGORIES: Dict[str, List[str]] = {
     "X_USERNAME": ["x", "usernames"],
     "INSTAGRAM_USERNAME": ["instagram", "usernames"],
     "FACEBOOK_USERNAME": ["facebook", "usernames"],
-    "TELEGRAM_USERNAME": ["communities", "usernames"],
+    "TELEGRAM_USERNAME": ["telegram", "usernames"],
     "LINKEDIN_PROFILE": ["linkedin", "usernames"],
     "PERSON_NAME": ["names", "publiccompanyrecords"],
     "COORDINATES": ["maps"],
@@ -199,7 +257,17 @@ TYPE_TO_CATEGORIES: Dict[str, List[str]] = {
     "PHONE_NATIONAL": ["phoneint", "phoneus"],
     "COMPANY": ["publiccompanyrecords"],
     "GENERIC_TEXT": ["searchengines", "docs"],
-    "NUMERIC_ID": ["searchengines"],
+    "NUMERIC_ID": ["searchengines", "vk", "facebook", "instagram", "x"],
+    "HASH_MD5": ["domains"],
+    "ADSENSE_ID": ["domains"],
+    "ANALYTICS_ID": ["domains"],
+    "HASHTAG": ["instagram", "videos"],
+    "NORMATTIVA_URN": ["legal"],
+    "CURIA_CASE": ["legal"],
+    "EU_VAT": ["legal"],
+    "LEGAL_TEXT": ["legal"],
+    "TELEGRAM_KEYWORD": ["telegram"],
+    "ADDRESS": ["address"],
     "YOUTUBE_VIDEO_ID": ["videos"],
     "YOUTUBE_CHANNEL_ID": ["videos"],
 }
@@ -221,7 +289,7 @@ def build_fields(value: str, indicator_type: str,
     values always win over derived defaults.
     """
     v = (value or "").strip()
-    f: Dict[str, str] = {"term": v, "query": v, "keyword": v}
+    f: Dict[str, str] = {"term": v, "query": v, "keyword": v, "q": v}
     t = indicator_type.upper()
 
     if t in ("DOMAIN",):
@@ -271,6 +339,26 @@ def build_fields(value: str, indicator_type: str,
         f["channelid"] = v
     elif t in ("PHONE_E164", "PHONE_NATIONAL"):
         f.update(_phone_fields(v, extra or {}))
+    elif t == "HASH_MD5":
+        f["md5_hash"] = v.lower()
+    elif t == "ADSENSE_ID":
+        f["adsenseid"] = v
+    elif t == "ANALYTICS_ID":
+        f["analyticsid"] = v
+    elif t == "NUMERIC_ID":
+        f["userid"] = v
+    elif t == "HASHTAG":
+        f["hashtag"] = v.lstrip("#")
+    elif t == "NORMATTIVA_URN":
+        f["urn"] = v
+    elif t == "CURIA_CASE":
+        f["case"] = v.upper()
+    elif t == "EU_VAT":
+        compact = re.sub(r"[\s.-]+", "", v.upper())
+        country = "EL" if compact[:2] == "GR" else compact[:2]
+        f["vat_country"], f["vat_number"] = country, compact[2:]
+    elif t == "ADDRESS":
+        f["full_address"] = v
 
     if extra:
         f.update({k: str(val) for k, val in extra.items() if val is not None})
@@ -291,8 +379,11 @@ def _phone_fields(value: str, extra: Dict[str, str]) -> Dict[str, str]:
         nat = digits.lstrip("0")
 
     e164 = f"{cc}{nat}" if cc else nat
+    raw = re.sub(r"\s", "", str(extra.get("nationalnumber", "")))
+    if not raw:
+        raw = nat if value.startswith("+") else re.sub(r"[^\d]", "", value)
     out = {
-        "e164": e164, "countrycode": cc, "nat_num": nat,
+        "e164": e164, "countrycode": cc, "nat_num": nat, "national_raw": raw,
         "dt_num_only": nat, "dt_0num_only": f"0{nat}", "dt_num_generic": nat,
         "dt_enum_generic": f"e{nat}",
         "google_query": f'"+{cc}{nat}" OR "+{cc} {nat}"' if cc else f'"{nat}"',
@@ -303,7 +394,8 @@ def _phone_fields(value: str, extra: Dict[str, str]) -> Dict[str, str]:
     # US-style 10-digit breakdown
     if len(digits) >= 10:
         d = digits[-10:]
-        out.update({"area": d[:3], "prefix": d[3:6], "line": d[6:], "full": d})
+        out.update({"area": d[:3], "prefix": d[3:6], "line": d[6:], "full": d,
+                    "full_dash": f"{d[:3]}-{d[3:6]}-{d[6:]}"})
     return out
 
 
@@ -327,7 +419,9 @@ def render_entry(entry: Dict[str, Any], fields: Dict[str, str]) -> Optional[str]
     url = entry["urlTemplate"]
 
     def repl(m: "re.Match") -> str:
-        return encode_uri_component(fields[m.group(1)])
+        key = m.group(1)
+        safe = _ENCODE_URI_SAFE if key in _RAW_URI_FIELDS else _ENCODE_SAFE
+        return encode_uri_component(fields[key], safe)
 
     return _PLACEHOLDER_RE.sub(repl, url)
 
@@ -337,7 +431,8 @@ def render_urls(value: str,
                 categories_filter: Optional[List[str]] = None,
                 extra: Optional[Dict[str, str]] = None,
                 include_onion: bool = True,
-                limit: Optional[int] = None) -> Dict[str, Any]:
+                limit: Optional[int] = None,
+                exclude_geo_locked: bool = False) -> Dict[str, Any]:
     """Produce a curated list of OSINT search URLs for `value`.
 
     - indicator_type: force a type; if None, auto-classified (top candidate).
@@ -345,6 +440,8 @@ def render_urls(value: str,
       type->categories map. Pass [] or ['all'] to consider every category.
     - extra: structured/optional fields (firstname, city, countrycode, since...).
     - include_onion: keep .onion (Tor) results.
+    - exclude_geo_locked: drop links verified to need an exit IP in a specific
+      country. Otherwise they are kept and flagged in "access" and "warnings".
     - limit: cap the number of URLs returned.
     """
     candidates = classify_indicator(value)
@@ -372,12 +469,19 @@ def render_urls(value: str,
             continue
         url = render_entry(e, fields)
         if url:
-            results.append({
+            item = {
                 "id": e["id"],
                 "category": e["category"],
                 "label": e["label"],
                 "url": url,
-            })
+            }
+            acc = access_for(e["urlTemplate"])
+            if exclude_geo_locked and acc and acc.get("vpn") == "required":
+                continue
+            if acc:
+                item["access"] = {k: v for k, v in acc.items() if not k.endswith("_detail")}
+                item["access_note"] = access_note(acc)
+            results.append(item)
 
     if limit:
         results = results[:limit]
@@ -388,8 +492,35 @@ def render_urls(value: str,
         "candidates": candidates,
         "categories_used": cats if cats is not None else "all",
         "count": len(results),
+        "warnings": access_warnings(results),
         "results": results,
     }
+
+
+def access_warnings(results: List[Dict[str, Any]]) -> List[str]:
+    """Summary warnings for geo-locked, Tor-only and VPN-recommended links."""
+    geo: Dict[str, int] = {}
+    maybe: Dict[str, int] = {}
+    tor = 0
+    for r in results:
+        acc = r.get("access") or {}
+        if acc.get("vpn") == "required":
+            geo[acc.get("country") or "?"] = geo.get(acc.get("country") or "?", 0) + 1
+        elif acc.get("vpn") == "recommended":
+            maybe[acc.get("country") or "?"] = maybe.get(acc.get("country") or "?", 0) + 1
+        elif acc.get("vpn") == "tor":
+            tor += 1
+    out = []
+    for cc, n in sorted(geo.items()):
+        out.append(f"{n} link(s) are geo-locked to {cc}: they only work through an exit IP in {cc} "
+                   f"(VPN). From elsewhere they fail or show a block page. A VPN changes your "
+                   f"exit IP, not your identity: keep a sterile browser profile.")
+    for cc, n in sorted(maybe.items()):
+        out.append(f"{n} link(s) may need an exit IP in {cc} (desk estimate, not verified). "
+                   f"Try without a VPN first; use one only if the page fails.")
+    if tor:
+        out.append(f"{tor} link(s) are .onion services: open them only in Tor Browser.")
+    return out
 
 
 def search_catalog(query: str, limit: int = 50) -> List[Dict[str, Any]]:

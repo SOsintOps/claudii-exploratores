@@ -56,6 +56,7 @@ def cmd_urls(a):
         categories_filter=cats,
         extra=extra or None,
         include_onion=not a.no_onion,
+        exclude_geo_locked=a.no_geo_locked,
         limit=a.limit,
     )
     if a.format == "json":
@@ -71,7 +72,8 @@ def cmd_urls(a):
             if r["category"] != cur:
                 cur = r["category"]
                 print(f"\n## {cur}")
-            print(f"- [{r['label']}]({r['url']})")
+            note = f" — ⚠️ {r['access_note']}" if r.get("access_note") else ""
+            print(f"- [{r['label']}]({r['url']}){note}")
 
 
 def cmd_search(a):
@@ -109,6 +111,8 @@ def build_parser():
                         "state=, street=, zip=, countrycode=, nationalnumber=, since=, until=, amount=.")
     s.add_argument("--limit", type=int, default=None)
     s.add_argument("--no-onion", action="store_true", help="Exclude .onion (Tor) results.")
+    s.add_argument("--no-geo-locked", action="store_true",
+                   help="Exclude links verified to need an exit IP in a specific country.")
     s.add_argument("--format", choices=["markdown", "json", "urls"], default="markdown")
     s.set_defaults(func=cmd_urls)
 
