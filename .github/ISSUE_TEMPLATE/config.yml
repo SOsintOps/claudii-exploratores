@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security problem
+    url: https://github.com/SOsintOps/claudii-exploratores/security/advisories/new
+    about: Report vulnerabilities privately, not in a public issue.
+  - name: New source or dead link in the web toolkit
+    url: https://github.com/SOsintOps/Exploratores/issues
+    about: The catalog comes from Exploratores; sources are added and removed there first.

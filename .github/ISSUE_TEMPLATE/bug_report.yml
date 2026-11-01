@@ -1,0 +1,36 @@
+name: Bug report
+description: Something in the engine, the skill or the MCP server does not work.
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Release or commit (see docs/versionhistory.md).
+      placeholder: 1.1.0-alpha
+    validations:
+      required: true
+  - type: dropdown
+    id: part
+    attributes:
+      label: Part
+      options: [Skill (CLI), MCP server, Engine / classifier, Build or sync scripts, Documentation]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+      description: Use neutral test values (example.com, John Smith), never real case data.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      render: shell
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: "Windows 11, Python 3.12, mcp 2.3, Claude Desktop"

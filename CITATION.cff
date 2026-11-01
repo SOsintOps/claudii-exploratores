@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use Claudii Exploratores in your work, please cite it as below."
+title: "Claudii Exploratores"
+abstract: "The Exploratores OSINT catalogue as an agent skill and an offline MCP server for Claude: indicator classification, curated OSINT search links with access warnings, IBAN validation and PII redaction."
+type: software
+authors:
+  - name: "Ramingo (SOsintOps)"
+version: 1.1.0-alpha
+license: AGPL-3.0-only
+repository-code: "https://github.com/SOsintOps/claudii-exploratores"
+keywords: [osint, mcp, claude, investigation, intelligence]
+references:
+  - type: software
+    title: "Exploratores OSINT Toolkit"
+    authors:
+      - name: "Ramingo (SOsintOps)"
+    repository-code: "https://github.com/SOsintOps/Exploratores"

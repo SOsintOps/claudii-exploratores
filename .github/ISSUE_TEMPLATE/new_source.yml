@@ -1,0 +1,37 @@
+name: New source
+description: Propose an OSINT source for the catalog (it will be added to Exploratores first).
+labels: [source]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name and URL
+    validations:
+      required: true
+  - type: input
+    id: template
+    attributes:
+      label: Search URL template
+      placeholder: "https://example.org/search?q={term}"
+    validations:
+      required: true
+  - type: dropdown
+    id: access
+    attributes:
+      label: Access
+      multiple: true
+      options: [No login, Free account, Paid, VPN in a specific country, Tor]
+  - type: textarea
+    id: why
+    attributes:
+      label: What it adds, and checked how
+      description: Which indicator it covers, what other sources miss, when and from which country you tested it.
+    validations:
+      required: true
+  - type: checkboxes
+    id: ethics
+    attributes:
+      label: Responsible use
+      options:
+        - label: The source serves lawful investigation and its main purpose is not stalking or harassing private individuals.
+          required: true
