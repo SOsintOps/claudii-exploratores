@@ -16,8 +16,16 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Optional
 
-from mcp.server.fastmcp import FastMCP
 from mcp.types import ToolAnnotations
+
+try:  # mcp 2.x renamed FastMCP to MCPServer
+    from mcp.server.mcpserver import MCPServer
+    _MCP2 = True
+except ImportError:  # mcp 1.x
+    from mcp.server.fastmcp import FastMCP as MCPServer  # type: ignore[no-redef]
+    _MCP2 = False
+
+__version__ = "1.1.0a1"
 
 # Support both `python -m exploratores_osint_mcp.server` (package) and a flat run.
 try:
@@ -35,8 +43,9 @@ _N_CATS = len(core.categories())
 _OFFLINE = ToolAnnotations(readOnlyHint=True, destructiveHint=False,
                            idempotentHint=True, openWorldHint=False)
 
-mcp = FastMCP(
+mcp = MCPServer(
     "claudii-exploratores",
+    **({"version": __version__} if _MCP2 else {}),
     instructions=(
         f"OSINT investigation tools ported from the Exploratores toolkit ({_N_TOOLS} curated "
         f"tools across {_N_CATS} categories). Use classify_indicator to detect what a value is, "
@@ -194,7 +203,7 @@ def restore_pii(text: str, redaction_map: Dict[str, str]) -> str:
 
 
 def main() -> None:
-    mcp.run()
+    mcp.run(transport="stdio")
 
 
 if __name__ == "__main__":

@@ -3,7 +3,7 @@ name = "claudii-exploratores-mcp"
 version = "1.1.0a1"
 description = "Claudii Exploratores — offline MCP server over the Exploratores OSINT catalog: indicator classification, curated OSINT search-URL building with VPN/Tor access warnings, IBAN validation and PII redaction."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = "AGPL-3.0-only"
 license-files = ["LICENSE"]
 authors = [{ name = "Ramingo (SOsintOps)" }]
@@ -16,7 +16,7 @@ classifiers = [
 ]
 keywords = ["osint", "mcp", "model-context-protocol", "claude", "investigation", "intelligence", "iban", "redaction"]
 dependencies = [
-  "mcp[cli]>=1.2.0",
+  "mcp>=1.2.0,<3",
 ]
 
 [project.scripts]
