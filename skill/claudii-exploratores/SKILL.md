@@ -3,20 +3,23 @@ name: claudii-exploratores
 description: >
   OSINT investigation toolkit. Use when the user wants to investigate or gather
   open-source intelligence on an indicator — a person's name, email, username,
-  domain, IP address, phone number, company, coordinates, IBAN, or crypto address —
+  domain, IP address, phone number, company, coordinates, IBAN, crypto address,
+  Telegram channel, Italian law (Normattiva URN), EU case or EU VAT number —
   and needs the right set of curated OSINT search links, or wants to validate an
   IBAN or redact PII before sharing case text with an external model. Ports the
-  Exploratores toolkit's catalog of 874 OSINT tools across 24 categories, with an
-  indicator classifier, input validators, IBAN verifier and PII Redactor. Triggers
+  Exploratores toolkit's catalog of over 900 OSINT tools across 26 categories, with an
+  indicator classifier, access warnings (VPN country, Tor, account), IBAN verifier
+  and PII Redactor. Triggers
   on: "OSINT", "investigate this domain/person/email/username", "reverse search",
   "find profiles for", "who owns this domain", "check this IBAN", "redact this text".
-license: See repository LICENSE (derived from Exploratores, GPL-compatible).
+license: AGPL-3.0 (derived from Exploratores). See LICENSE in the repository.
 ---
 
 # Claudii Exploratores — OSINT Skill
 
 You help conduct **open-source intelligence (OSINT)** investigations by turning an
-indicator into a curated set of search links drawn from 874 vetted OSINT tools, and
+indicator into a curated set of search links drawn from the Exploratores catalog
+(see `references/catalog_overview.md` for the current count), and
 by running supporting utilities (indicator classification, IBAN validation, PII
 redaction). You follow professional analytic and OPSEC standards.
 
@@ -34,6 +37,12 @@ redaction). You follow professional analytic and OPSEC standards.
 4. **Handle .onion carefully.** Some catalog entries are Tor hidden services
    (`.onion`). They require Tor Browser and are excluded with `--no-onion` when not
    wanted. Flag them; never present them as normal web links.
+5. **Relay access warnings before any link is opened.** The `urls` output starts
+   with ⚠️ warnings and marks single links: **GEO-LOCKED** links only work through an
+   exit IP in the named country (VPN), others may need a VPN, an account, or show
+   bot protection. Repeat these warnings to the user next to the links, never drop
+   them. A VPN changes the exit IP, not the identity: the profile must stay sterile.
+   `--no-geo-locked` removes geo-locked links when the user has no suitable VPN.
 
 ## Workflow
 
@@ -52,10 +61,11 @@ Given an investigation target:
    - Narrow scope with `--categories x,instagram,vk` (or `--categories all`).
    - Supply structured extras: `--field firstname=Mario --field lastname=Rossi`,
      `--field city=Milano --field state=MI`, `--field countrycode=39 --field nationalnumber=3331234567`.
-   - `--no-onion` to drop Tor links; `--limit N` to cap.
+   - `--no-onion` to drop Tor links; `--no-geo-locked` to drop links that need a
+     VPN exit in a given country; `--limit N` to cap.
 3. **Present** the results to the user grouped by category, and propose which
    handful to open first based on the 5W1H question they care about (see below).
-   Do **not** dump all 874 — curate.
+   Do **not** dump the whole catalog — curate. Keep the ⚠️ access notes.
 4. **(Agent mode, optional)** If the user asks you to actually run the searches and
    the Chrome extension is available, open the highest-value URLs in the browser,
    read the pages, and summarise real findings with source links. Otherwise hand
@@ -70,6 +80,9 @@ Map the user's question to categories (full method in `references/methodology.md
 - **What / How** (assets, infra): `domains`, `ip`, `images`, `docs`, `videos`.
 - **Where** (location): `maps`, `address`, `ip`.
 - **Money**: `currencies` (crypto), `iban`, `publiccompanyrecords`.
+- **Law / regulation** (Italy, EU): `legal` (Normattiva URN, CURIA case number,
+  VIES VAT check, case law, regulators).
+- **Telegram**: `telegram` (channel previews, in-channel search, message history).
 - **Broad start**: `searchengines`.
 
 ## Utilities
@@ -97,7 +110,8 @@ python scripts/exploratores.py categories
 `DOMAIN, URL, EMAIL, IPV4, USERNAME` (+ platform-specific), `PERSON_NAME,
 COORDINATES, IBAN, BTC_ADDRESS, CRYPTO_ETH, CRYPTO_XMR, VEHICLE_VIN,
 PHONE_E164/PHONE_NATIONAL, YOUTUBE_VIDEO_ID/CHANNEL_ID, SSN, ADSENSE_ID,
-ANALYTICS_ID, HASH_*`. When several are plausible the classifier returns them
+ANALYTICS_ID, HASH_*, HASHTAG, NORMATTIVA_URN, CURIA_CASE, EU_VAT`. Forced only
+(`--type`): `COMPANY, ADDRESS, LEGAL_TEXT, TELEGRAM_KEYWORD`. When several are plausible the classifier returns them
 ranked by confidence — pick with the user if it matters.
 
 ## Files
@@ -105,7 +119,8 @@ ranked by confidence — pick with the user if it matters.
 - `scripts/exploratores.py` — CLI (commands above).
 - `scripts/osint_core.py` — engine: classifier, field builder, URL renderer.
 - `scripts/iban_tools.py`, `scripts/redactor.py`, `scripts/_iban_countries.py`.
-- `scripts/catalog.json` — the 874-tool catalog (id, category, label, urlTemplate).
+- `scripts/catalog.json` — the tool catalog (id, category, label, urlTemplate).
+- `scripts/access.json` — per-host access requirements behind the ⚠️ warnings.
 - `references/methodology.md` — analytic standards, 5W1H, OPSEC (read when advising
   on investigative approach or tradecraft).
 - `references/catalog_overview.md` — category-by-category tool map.
