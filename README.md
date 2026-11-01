@@ -303,7 +303,8 @@ operational use.
 - [x] CI (GitHub Actions) on every push and pull request.
 - [x] Weekly sync check against Exploratores.
 - [x] Access warnings for geo-locked, Tor-only and login-only sources.
-- [ ] Live recheck of the new sources and of the hosts still unverified (VPN passes per country).
+- [x] Access recheck (2026-11-01): automated pass on every host, browser pass through US and Swedish VPN exits on the hosts that failed, compared with a home IP in Italy.
+- [ ] Manual check of the sources behind interactive challenges and of the Russian sources (no reliable Russian exit available).
 - [ ] PyPI release of the MCP server and listing in the MCP registry (`server.json` ready).
 - [ ] Fuller phone-number parsing parity with the upstream toolkit.
 - [ ] Optional bank-name resolution for IBANs.
