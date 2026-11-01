@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Python ${{ matrix.python }} / mcp ${{ matrix.mcp }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { python: "3.10", mcp: "<2" }
+          - { python: "3.12", mcp: "<2" }
+          - { python: "3.13", mcp: ">=2,<3" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install "mcp${{ matrix.mcp }}" pytest
+          pip install -e mcp/
+      - name: Tests
+        run: pytest -q tests
+
+  skill-stdlib:
+    name: Skill on Python 3.9, standard library only
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+      - name: CLI smoke test
+        working-directory: skill/claudii-exploratores/scripts
+        run: |
+          python exploratores.py classify "john.doe@example.com"
+          python exploratores.py urls "example.com" --format markdown > /dev/null
+          python exploratores.py iban "GB82 WEST 1234 5698 7654 32"
+
+  build:
+    name: Generated files up to date
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild and compare
+        run: |
+          bash scripts/build_release.sh
+          git status --porcelain
+          git diff --exit-code -- . ':!dist'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: claudii-exploratores-skill
+          path: dist/claudii-exploratores.skill

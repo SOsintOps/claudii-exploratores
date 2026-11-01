@@ -339,6 +339,7 @@ def build_fields(value: str, indicator_type: str,
         f["channelid"] = v
     elif t in ("PHONE_E164", "PHONE_NATIONAL"):
         f.update(_phone_fields(v, extra or {}))
+        f["phone"] = v
     elif t == "HASH_MD5":
         f["md5_hash"] = v.lower()
     elif t == "ADSENSE_ID":
@@ -349,6 +350,7 @@ def build_fields(value: str, indicator_type: str,
         f["userid"] = v
     elif t == "HASHTAG":
         f["hashtag"] = v.lstrip("#")
+        f["tag"] = v.lstrip("#")
     elif t == "NORMATTIVA_URN":
         f["urn"] = v
     elif t == "CURIA_CASE":

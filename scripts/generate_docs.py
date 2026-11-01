@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Render the human-readable classification page from query_classification.csv."""
-import csv, datetime, os
+import csv, json, os
 from collections import defaultdict, Counter
 
 HERE=os.path.dirname(os.path.abspath(__file__)); ROOT=os.path.dirname(HERE)
@@ -15,10 +15,15 @@ CAT_LABEL={
  'address':'Addresses','currencies':'Cryptocurrencies','videos':'Videos','keybase':'Keybase','ip':'IP / network',
  'docs':'Documents','images':'Images','linkedin':'LinkedIn','x':'X / Twitter','facebook':'Facebook',
  'instagram':'Instagram','vehicles':'Vehicles','vk':'VK','iban':'IBAN',
+ 'legal':'Legal (Italy / EU)','telegram':'Telegram',
 }
 ORDER=['searchengines','usernames','names','email','domains','ip','publiccompanyrecords','address',
  'phoneus','phoneint','facebook','instagram','x','linkedin','vk','communities','maps','images','videos',
- 'docs','currencies','vehicles','keybase','iban']
+ 'docs','currencies','vehicles','keybase','iban','legal','telegram']
+# Any category not listed above still gets a section, at the end.
+ORDER+=sorted({r['category'] for r in rows}-set(ORDER))
+# Date of the catalog, not of the run: the page only changes when the data does.
+CATALOG_DATE=(json.load(open(os.path.join(ROOT,"shared","catalog.json"),encoding="utf-8"))["meta"].get("generated") or "")[:10]
 
 def esc(s): return (s or '').replace('|','\\|').replace('\n',' ')
 def bv(v):
@@ -41,7 +46,7 @@ hdr=f"""# OSINT query classification: authenticated Chrome profile & VPN
 
 > **Project:** Claudii-Exploratores (standalone)
 > **Scope:** Exploratores 3.4.1 catalog (`shared/catalog.json`) — **{tot} queries across 24 categories**
-> **Last updated:** {datetime.date.today().isoformat()}
+> **Last updated:** {CATALOG_DATE}
 > **Status:** **desk** analysis (no live testing) — see disclaimer.
 
 ---

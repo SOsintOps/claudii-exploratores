@@ -1162,6 +1162,51 @@ Per-row OPSEC recommendations (identity and network) are in the companion CSV.
 | Yandex Search | `yandex.com` | No login | No (global access) | ● |
 
 
+### Legal (Italy / EU)  —  15 queries
+
+*Auth:* 15 no-login  ·  *VPN:* 15 no-VPN
+
+| Service | Host | Auth (access) | VPN/country (access) | Conf. |
+|---|---|---|---|:--:|
+| Brocardi | `brocardi.it` | No login | No (global access) | ● |
+| CONSOB Listed Cos. | `consob.it` | No login | No (global access) | ● |
+| CONSOB Search | `consob.it` | No login | No (global access) | ● |
+| CURIA (Case No.) | `curia.europa.eu` | No login | No (global access) | ● |
+| VIES | `ec.europa.eu` | No login | No (global access) | ● |
+| EUR-Lex | `eur-lex.europa.eu` | No login | No (global access) | ● |
+| Giustizia amministrativa | `giustizia-amministrativa.it` | No login | No (global access) | ● |
+| Corte costituzionale | `google.com` | No login | No (global access) | ● |
+| Garante Privacy | `google.com` | No login | No (global access) | ● |
+| Gazzetta Ufficiale | `google.com` | No login | No (global access) | ● |
+| Normattiva Search | `google.com` | No login | No (global access) | ● |
+| SentenzeWeb | `google.com` | No login | No (global access) | ● |
+| Normattiva (URN) | `normattiva.it` | No login | No (global access) | ● |
+| Vendite Pubbliche | `pvp.giustizia.it` | No login | No (global access) | ● |
+| TMview | `tmdn.org` | No login | No (global access) | ● |
+
+
+### Telegram  —  14 queries
+
+*Auth:* 10 no-login, 4 social-login  ·  *VPN:* 14 no-VPN
+
+| Service | Host | Auth (access) | VPN/country (access) | Conf. |
+|---|---|---|---|:--:|
+| OSINT.ME CSE | `cse.google.com` | No login | No (global access) | ● |
+| Telegago | `cse.google.com` | No login | No (global access) | ● |
+| Invite Links | `google.com` | No login | No (global access) | ● |
+| Link Mentions | `google.com` | No login | No (global access) | ● |
+| Telegraph | `google.com` | No login | No (global access) | ● |
+| Lyzem | `lyzem.com` | No login | No (global access) | ● |
+| Channel Preview | `t.me` | Platform login: Telegram (to join channels) (to view content) | No (global access) | ◑ |
+| Jump Back in History | `t.me` | Platform login: Telegram (to join channels) (to view content) | No (global access) | ◑ |
+| Profile/Channel | `t.me` | Platform login: Telegram (to join channels) (to view content) | No (global access) | ◑ |
+| Search in Channel | `t.me` | Platform login: Telegram (to join channels) (to view content) | No (global access) | ◑ |
+| Telemetr.io | `telemetr.io` | No login | No (global access) | ● |
+| Telesco.pe | `telesco.pe` | No login | No (global access) | ● |
+| TGStat | `tgstat.com` | No login | No (global access) | ● |
+| Preview History | `web.archive.org` | No login | No (global access) | ● |
+
+
 ---
 
 ## 7. Notes, limits and maintenance
