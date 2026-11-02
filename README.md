@@ -304,7 +304,7 @@ operational use.
 - [x] Weekly sync check against Exploratores.
 - [x] Access warnings for geo-locked, Tor-only and login-only sources.
 - [x] Access recheck (2026-11-01): automated pass on every host, browser pass through US and Swedish VPN exits on the hosts that failed, compared with a home IP in Italy.
-- [ ] Manual check of the sources behind interactive challenges and of the Russian sources (no reliable Russian exit available).
+- [x] Sources behind interactive checks and the Russian sources: reviewed by hand in Exploratores, which keeps them active (alive behind bot protection; checko.ru hostile to western IP addresses).
 - [ ] PyPI release of the MCP server and listing in the MCP registry (`server.json` ready).
 - [ ] Fuller phone-number parsing parity with the upstream toolkit.
 - [ ] Optional bank-name resolution for IBANs.
