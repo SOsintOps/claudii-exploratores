@@ -27,7 +27,7 @@ jobs:
             assets/data
             assets/js/janua-search-map.js
             pages
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - name: Compare catalog
