@@ -21,7 +21,7 @@ jobs:
           - { python: "3.12", mcp: "<2" }
           - { python: "3.13", mcp: ">=2,<3" }
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
@@ -38,7 +38,7 @@ jobs:
     name: Skill on Python 3.9, standard library only
     runs-on: ubuntu-24.04   # setup-python has no 3.9 build for Ubuntu 26.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: "3.9"
@@ -53,7 +53,7 @@ jobs:
     name: Generated files up to date
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
