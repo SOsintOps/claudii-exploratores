@@ -1,37 +1,55 @@
 #!/usr/bin/env bash
-# build_release.sh — regenerate the catalog and sync the shared engine into both
-# deliverables (skill + MCP), then package the skill as a .skill zip.
+# build_release.sh — (optionally) re-sync the catalog from Exploratores, rebuild the
+# access map and the docs, copy the shared engine into both deliverables (skill +
+# MCP), then package the skill as a .skill zip.
 #
-# Usage:  scripts/build_release.sh [/path/to/Exploratores-3.4.1]
+# Usage:  scripts/build_release.sh [/path/to/Exploratores]
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SRC="${1:-}"
+PY="${PYTHON:-python3}"
+command -v "$PY" >/dev/null 2>&1 || PY=python
 SHARED="$ROOT/shared"
 SKILL_SCRIPTS="$ROOT/skill/claudii-exploratores/scripts"
 MCP_PKG="$ROOT/mcp/exploratores_osint_mcp"
 DIST="$ROOT/dist"
 
-# 1. (Optional) regenerate catalog.json from the original toolkit
-if [[ -n "$SRC" && -f "$SRC/assets/js/search-library.js" ]]; then
-  echo "==> Regenerating catalog.json from $SRC"
-  node "$ROOT/scripts/extract_catalog.js" "$SRC" "$SHARED/catalog.json"
+# 1. (Optional) regenerate catalog.json from the Exploratores export
+if [[ -n "$SRC" ]]; then
+  echo "==> Syncing catalog.json from $SRC"
+  "$PY" "$ROOT/scripts/sync_catalog.py" "$SRC"
 fi
 
-CORE_FILES=(osint_core.py iban_tools.py redactor.py _iban_countries.py catalog.json)
+# 2. Desk classification, its page, and the per-host access map
+echo "==> Rebuilding access classification and access map"
+"$PY" "$ROOT/scripts/classify_queries.py"
+"$PY" "$ROOT/scripts/generate_docs.py"
+"$PY" "$ROOT/scripts/build_access_map.py"
+"$PY" "$ROOT/scripts/generate_catalog_overview.py"
 
-echo "==> Syncing shared engine into skill/"
-mkdir -p "$SKILL_SCRIPTS"
-for f in "${CORE_FILES[@]}"; do cp "$SHARED/$f" "$SKILL_SCRIPTS/$f"; done
+CORE_FILES=(osint_core.py iban_tools.py redactor.py _iban_countries.py catalog.json access.json)
 
-echo "==> Syncing shared engine into mcp/ package"
-mkdir -p "$MCP_PKG"
-for f in "${CORE_FILES[@]}"; do cp "$SHARED/$f" "$MCP_PKG/$f"; done
+echo "==> Syncing shared engine into skill/ and mcp/"
+mkdir -p "$SKILL_SCRIPTS" "$MCP_PKG"
+for f in "${CORE_FILES[@]}"; do
+  cp "$SHARED/$f" "$SKILL_SCRIPTS/$f"
+  cp "$SHARED/$f" "$MCP_PKG/$f"
+done
 
 echo "==> Packaging .skill archive"
 mkdir -p "$DIST"
-( cd "$ROOT/skill" && zip -rq "$DIST/claudii-exploratores.skill" claudii-exploratores \
-    -x '*/__pycache__/*' '*.pyc' )
+rm -f "$DIST/claudii-exploratores.skill"
+( cd "$ROOT/skill" && "$PY" - <<'EOF'
+import os, zipfile
+with zipfile.ZipFile("../dist/claudii-exploratores.skill", "w", zipfile.ZIP_DEFLATED) as z:
+    for base, dirs, files in os.walk("claudii-exploratores"):
+        dirs[:] = [d for d in dirs if d != "__pycache__"]
+        for f in sorted(files):
+            if not f.endswith(".pyc"):
+                z.write(os.path.join(base, f))
+EOF
+)
 
 echo "==> Done."
 echo "    Skill package : $DIST/claudii-exploratores.skill"

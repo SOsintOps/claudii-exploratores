@@ -1,33 +1,38 @@
 {
   "meta": {
-    "source": "Exploratores OSINT Toolkit 3.4.1 (https://github.com/SOsintOps/Exploratores), with the dead-link review of Exploratores 3.10.2-3.10.4 applied",
-    "generated": "2026-11-01T00:00:00.000Z",
-    "total": 874,
+    "source": "Exploratores OSINT Toolkit 3.10.5 (https://github.com/SOsintOps/Exploratores)",
+    "upstream_version": "3.10.5",
+    "upstream_sha256": "b65b383ec2b72fd4ee2b9056172bbf072f3f7ee6565b9d5cf11a4215b4781e84",
+    "generated": "2026-11-01T00:02:47Z",
+    "total": 909,
+    "disabled_skipped": 0,
     "categories": {
-      "searchengines": 28,
-      "domains": 138,
-      "names": 59,
-      "phoneus": 27,
-      "phoneint": 43,
-      "publiccompanyrecords": 56,
-      "email": 23,
-      "usernames": 66,
-      "communities": 32,
-      "maps": 32,
       "address": 22,
+      "communities": 26,
       "currencies": 46,
-      "videos": 39,
-      "keybase": 6,
-      "ip": 57,
       "docs": 30,
-      "images": 16,
-      "linkedin": 11,
-      "x": 31,
+      "domains": 139,
+      "email": 23,
       "facebook": 46,
+      "iban": 5,
+      "images": 16,
       "instagram": 18,
+      "ip": 57,
+      "keybase": 6,
+      "legal": 15,
+      "linkedin": 11,
+      "maps": 33,
+      "names": 61,
+      "phoneint": 44,
+      "phoneus": 27,
+      "publiccompanyrecords": 63,
+      "searchengines": 28,
+      "telegram": 14,
+      "usernames": 66,
       "vehicles": 13,
+      "videos": 39,
       "vk": 30,
-      "iban": 5
+      "x": 31
     }
   },
   "entries": [
@@ -592,72 +597,6 @@
       ]
     },
     {
-      "id": "communities-tg-channelsearch",
-      "category": "communities",
-      "subcategory": "tg",
-      "label": "Channel Search",
-      "urlTemplate": "https://lyzem.com/search?q={keyword}",
-      "validator": "getAndValidateTgKey",
-      "placeholders": [
-        "{keyword}"
-      ]
-    },
-    {
-      "id": "communities-tg-groupsearch",
-      "category": "communities",
-      "subcategory": "tg",
-      "label": "Group Search",
-      "urlTemplate": "https://tgstat.com/en/search?q={keyword}",
-      "validator": "getAndValidateTgKey",
-      "placeholders": [
-        "{keyword}"
-      ]
-    },
-    {
-      "id": "communities-tg-preview",
-      "category": "communities",
-      "subcategory": "tg",
-      "label": "Channel Preview",
-      "urlTemplate": "https://t.me/s/{username}",
-      "validator": "getAndValidateTgUser",
-      "placeholders": [
-        "{username}"
-      ]
-    },
-    {
-      "id": "communities-tg-profile",
-      "category": "communities",
-      "subcategory": "tg",
-      "label": "Profile/Channel",
-      "urlTemplate": "https://t.me/{username}",
-      "validator": "getAndValidateTgUser",
-      "placeholders": [
-        "{username}"
-      ]
-    },
-    {
-      "id": "communities-tg-telemetrio",
-      "category": "communities",
-      "subcategory": "tg",
-      "label": "Telemetr.io",
-      "urlTemplate": "https://telemetr.io/en/channels/search?q={username}",
-      "validator": "getAndValidateTgUser",
-      "placeholders": [
-        "{username}"
-      ]
-    },
-    {
-      "id": "communities-tg-telescope",
-      "category": "communities",
-      "subcategory": "tg",
-      "label": "Telesco.pe",
-      "urlTemplate": "https://telesco.pe/{username}",
-      "validator": "getAndValidateTgUser",
-      "placeholders": [
-        "{username}"
-      ]
-    },
-    {
       "id": "currencies-analysis-arkham-exp",
       "category": "currencies",
       "subcategory": "analysis",
@@ -914,7 +853,7 @@
       "id": "currencies-conv-btc-eur",
       "category": "currencies",
       "subcategory": "conv",
-      "label": "BTC &gt; EUR",
+      "label": "BTC > EUR",
       "urlTemplate": "https://www.google.com/search?q={amount}+btc+to+eur",
       "validator": "getAndValidateCryptoAmount",
       "placeholders": [
@@ -925,7 +864,7 @@
       "id": "currencies-conv-btc-usd",
       "category": "currencies",
       "subcategory": "conv",
-      "label": "BTC &gt; USD",
+      "label": "BTC > USD",
       "urlTemplate": "https://www.google.com/search?q={amount}+btc+to+usd",
       "validator": "getAndValidateCryptoAmount",
       "placeholders": [
@@ -936,7 +875,7 @@
       "id": "currencies-conv-eur-btc",
       "category": "currencies",
       "subcategory": "conv",
-      "label": "EUR &gt; BTC",
+      "label": "EUR > BTC",
       "urlTemplate": "https://www.google.com/search?q={amount}+eur+to+btc",
       "validator": "getAndValidateFiatAmount",
       "placeholders": [
@@ -947,7 +886,7 @@
       "id": "currencies-conv-satoshi-usd",
       "category": "currencies",
       "subcategory": "conv",
-      "label": "Satoshi &gt; USD",
+      "label": "Satoshi > USD",
       "urlTemplate": "https://www.google.com/search?q={amount}+satoshi+to+usd",
       "validator": "getAndValidateCryptoAmount",
       "placeholders": [
@@ -958,7 +897,7 @@
       "id": "currencies-conv-usd-btc",
       "category": "currencies",
       "subcategory": "conv",
-      "label": "USD &gt; BTC",
+      "label": "USD > BTC",
       "urlTemplate": "https://www.google.com/search?q={amount}+usd+to+btc",
       "validator": "getAndValidateFiatAmount",
       "placeholders": [
@@ -969,7 +908,7 @@
       "id": "currencies-conv-usd-satoshi",
       "category": "currencies",
       "subcategory": "conv",
-      "label": "USD &gt; Satoshi",
+      "label": "USD > Satoshi",
       "urlTemplate": "https://www.google.com/search?q={amount}+usd+to+satoshi",
       "validator": "getAndValidateFiatAmount",
       "placeholders": [
@@ -2137,6 +2076,15 @@
       "placeholders": [
         "{domain}"
       ]
+    },
+    {
+      "id": "domains-it-whois",
+      "category": "domains",
+      "subcategory": "it",
+      "label": ".it Registry WHOIS",
+      "urlTemplate": "https://www.nic.it/en/find-your-it/web-whois",
+      "validator": "getAndValidateDomain",
+      "placeholders": []
     },
     {
       "id": "domains-profile-adsense-dnslytics",
@@ -4886,6 +4834,172 @@
       ]
     },
     {
+      "id": "legal-eu-curia",
+      "category": "legal",
+      "subcategory": "eu",
+      "label": "CURIA (Case No.)",
+      "urlTemplate": "https://curia.europa.eu/juris/liste.jsf?num={case}&language=en",
+      "validator": "getAndValidateCuriaCase",
+      "placeholders": [
+        "{case}"
+      ]
+    },
+    {
+      "id": "legal-eu-eurlex",
+      "category": "legal",
+      "subcategory": "eu",
+      "label": "EUR-Lex",
+      "urlTemplate": "https://eur-lex.europa.eu/search.html?scope=EURLEX&text={q}&lang=en&type=quick",
+      "validator": "getAndValidateSearchTerm",
+      "placeholders": [
+        "{q}"
+      ]
+    },
+    {
+      "id": "legal-eu-tmview",
+      "category": "legal",
+      "subcategory": "eu",
+      "label": "TMview",
+      "urlTemplate": "https://www.tmdn.org/tmview/#/tmview/results?page=1&pageSize=30&criteria=C&basicSearch={q}",
+      "validator": "getAndValidateSearchTerm",
+      "placeholders": [
+        "{q}"
+      ]
+    },
+    {
+      "id": "legal-eu-vies",
+      "category": "legal",
+      "subcategory": "eu",
+      "label": "VIES",
+      "urlTemplate": "https://ec.europa.eu/taxation_customs/vies/rest-api/ms/{vat_country}/vat/{vat_number}",
+      "validator": "getAndValidateEuVat",
+      "placeholders": [
+        "{vat_country}",
+        "{vat_number}"
+      ]
+    },
+    {
+      "id": "legal-it-brocardi",
+      "category": "legal",
+      "subcategory": "it",
+      "label": "Brocardi",
+      "urlTemplate": "https://www.brocardi.it/search?q={q}",
+      "validator": "getAndValidateSearchTerm",
+      "placeholders": [
+        "{q}"
+      ]
+    },
+    {
+      "id": "legal-it-consob-listed",
+      "category": "legal",
+      "subcategory": "it",
+      "label": "CONSOB Listed Cos.",
+      "urlTemplate": "https://www.consob.it/web/area-pubblica/quotate/elenco?socname={q}",
+      "validator": "getAndValidateSearchTerm",
+      "placeholders": [
+        "{q}"
+      ]
+    },
+    {
+      "id": "legal-it-consob-search",
+      "category": "legal",
+      "subcategory": "it",
+      "label": "CONSOB Search",
+      "urlTemplate": "https://www.consob.it/web/consob/ricerca?q={q}",
+      "validator": "getAndValidateSearchTerm",
+      "placeholders": [
+        "{q}"
+      ]
+    },
+    {
+      "id": "legal-it-cortecost",
+      "category": "legal",
+      "subcategory": "it",
+      "label": "Corte costituzionale",
+      "urlTemplate": "https://www.google.com/search?q=site%3Acortecostituzionale.it+{q}",
+      "validator": "getAndValidateSearchTerm",
+      "placeholders": [
+        "{q}"
+      ]
+    },
+    {
+      "id": "legal-it-garante",
+      "category": "legal",
+      "subcategory": "it",
+      "label": "Garante Privacy",
+      "urlTemplate": "https://www.google.com/search?q=site%3Agaranteprivacy.it+{q}",
+      "validator": "getAndValidateSearchTerm",
+      "placeholders": [
+        "{q}"
+      ]
+    },
+    {
+      "id": "legal-it-gazzetta",
+      "category": "legal",
+      "subcategory": "it",
+      "label": "Gazzetta Ufficiale",
+      "urlTemplate": "https://www.google.com/search?q=site%3Agazzettaufficiale.it+{q}",
+      "validator": "getAndValidateSearchTerm",
+      "placeholders": [
+        "{q}"
+      ]
+    },
+    {
+      "id": "legal-it-giustamm",
+      "category": "legal",
+      "subcategory": "it",
+      "label": "Giustizia amministrativa",
+      "urlTemplate": "https://www.giustizia-amministrativa.it/web/guest/ricerca?searchGenericaTheme={q}",
+      "validator": "getAndValidateSearchTerm",
+      "placeholders": [
+        "{q}"
+      ]
+    },
+    {
+      "id": "legal-it-normattiva",
+      "category": "legal",
+      "subcategory": "it",
+      "label": "Normattiva Search",
+      "urlTemplate": "https://www.google.com/search?q=site%3Anormattiva.it+{q}",
+      "validator": "getAndValidateSearchTerm",
+      "placeholders": [
+        "{q}"
+      ]
+    },
+    {
+      "id": "legal-it-normattiva-urn",
+      "category": "legal",
+      "subcategory": "it",
+      "label": "Normattiva (URN)",
+      "urlTemplate": "https://www.normattiva.it/uri-res/N2Ls?{urn}",
+      "validator": "getAndValidateUrn",
+      "placeholders": [
+        "{urn}"
+      ]
+    },
+    {
+      "id": "legal-it-pvp",
+      "category": "legal",
+      "subcategory": "it",
+      "label": "Vendite Pubbliche",
+      "urlTemplate": "https://pvp.giustizia.it/pvp/it/lista_annunci.page?searchType=searchForm&ricercaLibera={q}",
+      "validator": "getAndValidateSearchTerm",
+      "placeholders": [
+        "{q}"
+      ]
+    },
+    {
+      "id": "legal-it-sentenzeweb",
+      "category": "legal",
+      "subcategory": "it",
+      "label": "SentenzeWeb",
+      "urlTemplate": "https://www.google.com/search?q=site%3Aitalgiure.giustizia.it+{q}",
+      "validator": "getAndValidateSearchTerm",
+      "placeholders": [
+        "{q}"
+      ]
+    },
+    {
       "id": "linkedin-ext-bing",
       "category": "linkedin",
       "subcategory": "ext",
@@ -5284,6 +5398,15 @@
       ]
     },
     {
+      "id": "maps-it-catasto",
+      "category": "maps",
+      "subcategory": "it",
+      "label": "Cadastral Geoportal",
+      "urlTemplate": "https://geoportale.cartografia.agenziaentrate.gov.it/age-inspire/srv/ita/catalog.search#/map",
+      "validator": null,
+      "placeholders": []
+    },
+    {
       "id": "maps-kartaview",
       "category": "maps",
       "subcategory": null,
@@ -5540,6 +5663,27 @@
       "subcategory": null,
       "label": "Interpol - RedNotices",
       "urlTemplate": "https://www.interpol.int/en/How-we-work/Notices/View-Red-Notices",
+      "validator": "getAndValidateNames",
+      "placeholders": []
+    },
+    {
+      "id": "names-it-antenati",
+      "category": "names",
+      "subcategory": "it",
+      "label": "Portale Antenati",
+      "urlTemplate": "https://antenati.cultura.gov.it/search-nominative/?cognome={lastname}&nome={firstname}",
+      "validator": "getAndValidateNames",
+      "placeholders": [
+        "{lastname}",
+        "{firstname}"
+      ]
+    },
+    {
+      "id": "names-it-fnomceo",
+      "category": "names",
+      "subcategory": "it",
+      "label": "FNOMCeO Doctors",
+      "urlTemplate": "https://albounico.fnomceo.it/",
       "validator": "getAndValidateNames",
       "placeholders": []
     },
@@ -6407,6 +6551,17 @@
       ]
     },
     {
+      "id": "phoneint-it-paginebianche",
+      "category": "phoneint",
+      "subcategory": "it",
+      "label": "Pagine Bianche (IT)",
+      "urlTemplate": "https://www.paginebianche.it/cerca-da-numero?qs={national_raw}",
+      "validator": "getAndValidateIntlPhone",
+      "placeholders": [
+        "{national_raw}"
+      ]
+    },
+    {
       "id": "phoneint-mysmsbox",
       "category": "phoneint",
       "subcategory": null,
@@ -7088,6 +7243,17 @@
       ]
     },
     {
+      "id": "publiccompanyrecords-company-sanctionskit",
+      "category": "publiccompanyrecords",
+      "subcategory": "company",
+      "label": "SanctionsKit",
+      "urlTemplate": "https://www.sanctionskit.com/search?q={companyname}",
+      "validator": "getAndValidateCompanyName",
+      "placeholders": [
+        "{companyname}"
+      ]
+    },
+    {
       "id": "publiccompanyrecords-company-trellis",
       "category": "publiccompanyrecords",
       "subcategory": "company",
@@ -7174,6 +7340,53 @@
       "placeholders": [
         "{phone}"
       ]
+    },
+    {
+      "id": "publiccompanyrecords-it-datigov",
+      "category": "publiccompanyrecords",
+      "subcategory": "it",
+      "label": "dati.gov.it Open Data",
+      "urlTemplate": "https://www.dati.gov.it/view-dataset?Cerca={companyname}",
+      "validator": "getAndValidateCompanyName",
+      "placeholders": [
+        "{companyname}"
+      ]
+    },
+    {
+      "id": "publiccompanyrecords-it-indicepa",
+      "category": "publiccompanyrecords",
+      "subcategory": "it",
+      "label": "IndicePA",
+      "urlTemplate": "https://www.indicepa.gov.it/ipa-portale/consultazione/indirizzo-sonoro/ricerca-ente",
+      "validator": "getAndValidateCompanyName",
+      "placeholders": []
+    },
+    {
+      "id": "publiccompanyrecords-it-inipec",
+      "category": "publiccompanyrecords",
+      "subcategory": "it",
+      "label": "INI-PEC",
+      "urlTemplate": "https://www.inipec.gov.it/cerca-pec",
+      "validator": "getAndValidateCompanyName",
+      "placeholders": []
+    },
+    {
+      "id": "publiccompanyrecords-it-registroimprese",
+      "category": "publiccompanyrecords",
+      "subcategory": "it",
+      "label": "Registro Imprese",
+      "urlTemplate": "https://www.registroimprese.it/ricerca-libera-e-acquisto",
+      "validator": "getAndValidateCompanyName",
+      "placeholders": []
+    },
+    {
+      "id": "publiccompanyrecords-it-verificapiva",
+      "category": "publiccompanyrecords",
+      "subcategory": "it",
+      "label": "Verifica Partita IVA",
+      "urlTemplate": "https://telematici.agenziaentrate.gov.it/VerificaPIVA/Scegli.do?parameter=verificaPiva",
+      "validator": "getAndValidateCompanyName",
+      "placeholders": []
     },
     {
       "id": "publiccompanyrecords-officer-aihit",
@@ -7342,6 +7555,17 @@
       "subcategory": "officer",
       "label": "Recap (Courtlistener)",
       "urlTemplate": "https://www.courtlistener.com/?type=r&q={officername}",
+      "validator": "getAndValidateOfficerName",
+      "placeholders": [
+        "{officername}"
+      ]
+    },
+    {
+      "id": "publiccompanyrecords-officer-sanctionskit",
+      "category": "publiccompanyrecords",
+      "subcategory": "officer",
+      "label": "SanctionsKit",
+      "urlTemplate": "https://www.sanctionskit.com/search?q={officername}",
       "validator": "getAndValidateOfficerName",
       "placeholders": [
         "{officername}"
@@ -7721,6 +7945,162 @@
       "validator": "getAndValidateSearchTerm",
       "placeholders": [
         "{term}"
+      ]
+    },
+    {
+      "id": "telegram-history",
+      "category": "telegram",
+      "subcategory": null,
+      "label": "Jump Back in History",
+      "urlTemplate": "https://t.me/s/{username}?before={msgid}",
+      "validator": "getAndValidateTgChannelHistory",
+      "placeholders": [
+        "{username}",
+        "{msgid}"
+      ]
+    },
+    {
+      "id": "telegram-inchannel",
+      "category": "telegram",
+      "subcategory": null,
+      "label": "Search in Channel",
+      "urlTemplate": "https://t.me/s/{username}?q={keyword}",
+      "validator": "getAndValidateTgChannelQuery",
+      "placeholders": [
+        "{username}",
+        "{keyword}"
+      ]
+    },
+    {
+      "id": "telegram-invites",
+      "category": "telegram",
+      "subcategory": null,
+      "label": "Invite Links",
+      "urlTemplate": "https://www.google.com/search?q=\"t.me%2Fjoinchat\"+\"{keyword}\"",
+      "validator": "getAndValidateTgKey",
+      "placeholders": [
+        "{keyword}"
+      ]
+    },
+    {
+      "id": "telegram-lyzem",
+      "category": "telegram",
+      "subcategory": null,
+      "label": "Lyzem",
+      "urlTemplate": "https://lyzem.com/search?q={keyword}",
+      "validator": "getAndValidateTgKey",
+      "placeholders": [
+        "{keyword}"
+      ]
+    },
+    {
+      "id": "telegram-mentions",
+      "category": "telegram",
+      "subcategory": null,
+      "label": "Link Mentions",
+      "urlTemplate": "https://www.google.com/search?q=\"t.me%2F{username}\"",
+      "validator": "getAndValidateTgUser",
+      "placeholders": [
+        "{username}"
+      ]
+    },
+    {
+      "id": "telegram-osintme",
+      "category": "telegram",
+      "subcategory": null,
+      "label": "OSINT.ME CSE",
+      "urlTemplate": "https://cse.google.com/cse?cx=6c3e0c0d3da8e3b4a&q={keyword}",
+      "validator": "getAndValidateTgKey",
+      "placeholders": [
+        "{keyword}"
+      ]
+    },
+    {
+      "id": "telegram-preview",
+      "category": "telegram",
+      "subcategory": null,
+      "label": "Channel Preview",
+      "urlTemplate": "https://t.me/s/{username}",
+      "validator": "getAndValidateTgUser",
+      "placeholders": [
+        "{username}"
+      ]
+    },
+    {
+      "id": "telegram-profile",
+      "category": "telegram",
+      "subcategory": null,
+      "label": "Profile/Channel",
+      "urlTemplate": "https://t.me/{username}",
+      "validator": "getAndValidateTgUser",
+      "placeholders": [
+        "{username}"
+      ]
+    },
+    {
+      "id": "telegram-telegago",
+      "category": "telegram",
+      "subcategory": null,
+      "label": "Telegago",
+      "urlTemplate": "https://cse.google.com/cse?cx=006368593537057042503:efxu7xprihg&q={keyword}",
+      "validator": "getAndValidateTgKey",
+      "placeholders": [
+        "{keyword}"
+      ]
+    },
+    {
+      "id": "telegram-telegraph",
+      "category": "telegram",
+      "subcategory": null,
+      "label": "Telegraph",
+      "urlTemplate": "https://www.google.com/search?q=site%3Atelegra.ph+\"{keyword}\"",
+      "validator": "getAndValidateTgKey",
+      "placeholders": [
+        "{keyword}"
+      ]
+    },
+    {
+      "id": "telegram-telemetrio",
+      "category": "telegram",
+      "subcategory": null,
+      "label": "Telemetr.io",
+      "urlTemplate": "https://telemetr.io/en/channels/search?q={username}",
+      "validator": "getAndValidateTgUser",
+      "placeholders": [
+        "{username}"
+      ]
+    },
+    {
+      "id": "telegram-telescope",
+      "category": "telegram",
+      "subcategory": null,
+      "label": "Telesco.pe",
+      "urlTemplate": "https://telesco.pe/{username}",
+      "validator": "getAndValidateTgUser",
+      "placeholders": [
+        "{username}"
+      ]
+    },
+    {
+      "id": "telegram-tgstat",
+      "category": "telegram",
+      "subcategory": null,
+      "label": "TGStat",
+      "urlTemplate": "https://tgstat.com/en/search?q={keyword}",
+      "validator": "getAndValidateTgKey",
+      "placeholders": [
+        "{keyword}"
+      ]
+    },
+    {
+      "id": "telegram-wayback",
+      "category": "telegram",
+      "subcategory": null,
+      "label": "Preview History",
+      "urlTemplate": "https://web.archive.org/web/*/t.me/s/{username}*",
+      "validator": "getAndValidateTgUser",
+      "placeholders": [
+        "{username}"
       ]
     },
     {
@@ -9027,7 +9407,7 @@
       "id": "vk-ext-checko",
       "category": "vk",
       "subcategory": "ext",
-      "label": "vk-ext-checko",
+      "label": "Checko.ru",
       "urlTemplate": "https://checko.ru/search?query={username}",
       "validator": "getAndValidateVkUsername",
       "placeholders": [
@@ -9038,7 +9418,7 @@
       "id": "vk-ext-google",
       "category": "vk",
       "subcategory": "ext",
-      "label": "vk-ext-google",
+      "label": "Google Search",
       "urlTemplate": "https://www.google.com/search?q=site%3Avk.com+\"{username}\"",
       "validator": "getAndValidateVkUsername",
       "placeholders": [
@@ -9049,7 +9429,7 @@
       "id": "vk-ext-mailru",
       "category": "vk",
       "subcategory": "ext",
-      "label": "vk-ext-mailru",
+      "label": "Mail.Ru Search",
       "urlTemplate": "https://go.mail.ru/search_social?q={username}",
       "validator": "getAndValidateVkUsername",
       "placeholders": [
@@ -9060,7 +9440,7 @@
       "id": "vk-ext-smat",
       "category": "vk",
       "subcategory": "ext",
-      "label": "vk-ext-smat",
+      "label": "SMAT Search",
       "urlTemplate": "https://www.smat-app.com/search?searchTerm={username}&startDate=2000-06-01&endDate={enddate}&websites=vk",
       "validator": "getAndValidateVkSmat",
       "placeholders": [
@@ -9072,7 +9452,7 @@
       "id": "vk-ext-webarchive",
       "category": "vk",
       "subcategory": "ext",
-      "label": "vk-ext-webarchive",
+      "label": "WebArchive (RU)",
       "urlTemplate": "https://web.archive.org/russian-independent-media/search/{username}",
       "validator": "getAndValidateVkUsername",
       "placeholders": [
@@ -9083,7 +9463,7 @@
       "id": "vk-profile-id",
       "category": "vk",
       "subcategory": "profile",
-      "label": "vk-profile-id",
+      "label": "Profile (User ID)",
       "urlTemplate": "https://vk.com/id{userid}",
       "validator": "getAndValidateVkUserId",
       "placeholders": [
@@ -9094,7 +9474,7 @@
       "id": "vk-profile-link",
       "category": "vk",
       "subcategory": "profile",
-      "label": "vk-profile-link",
+      "label": "VK.me Profile",
       "urlTemplate": "https://vk.me/{username}",
       "validator": "getAndValidateVkUsername",
       "placeholders": [
@@ -9105,7 +9485,7 @@
       "id": "vk-profile-username",
       "category": "vk",
       "subcategory": "profile",
-      "label": "vk-profile-username",
+      "label": "Profile (Username)",
       "urlTemplate": "https://vk.com/{username}",
       "validator": "getAndValidateVkUsername",
       "placeholders": [
@@ -9116,7 +9496,7 @@
       "id": "vk-search-all",
       "category": "vk",
       "subcategory": "search",
-      "label": "vk-search-all",
+      "label": "Search All Content",
       "urlTemplate": "https://vk.com/search?q={username}",
       "validator": "getAndValidateVkUsername",
       "placeholders": [
@@ -9127,7 +9507,7 @@
       "id": "vk-search-audio",
       "category": "vk",
       "subcategory": "search",
-      "label": "vk-search-audio",
+      "label": "Search Audio",
       "urlTemplate": "https://vk.com/search?c[section]=audio&c[q]={username}",
       "validator": "getAndValidateVkUsername",
       "placeholders": [
@@ -9138,7 +9518,7 @@
       "id": "vk-search-docs",
       "category": "vk",
       "subcategory": "search",
-      "label": "vk-search-docs",
+      "label": "Search Documents",
       "urlTemplate": "https://vk.com/search?c[section]=docs&c[q]={username}",
       "validator": "getAndValidateVkUsername",
       "placeholders": [
@@ -9149,7 +9529,7 @@
       "id": "vk-search-groups",
       "category": "vk",
       "subcategory": "search",
-      "label": "vk-search-groups",
+      "label": "Search Groups",
       "urlTemplate": "https://vk.com/search?c[section]=communities&c[q]={username}",
       "validator": "getAndValidateVkUsername",
       "placeholders": [
@@ -9160,7 +9540,7 @@
       "id": "vk-search-market",
       "category": "vk",
       "subcategory": "search",
-      "label": "vk-search-market",
+      "label": "Search Market",
       "urlTemplate": "https://vk.com/search?c[section]=market&c[q]={username}",
       "validator": "getAndValidateVkUsername",
       "placeholders": [
@@ -9171,7 +9551,7 @@
       "id": "vk-search-news",
       "category": "vk",
       "subcategory": "search",
-      "label": "vk-search-news",
+      "label": "Search News/Posts",
       "urlTemplate": "https://vk.com/search?c[section]=news&c[q]={username}",
       "validator": "getAndValidateVkUsername",
       "placeholders": [
@@ -9182,7 +9562,7 @@
       "id": "vk-search-people",
       "category": "vk",
       "subcategory": "search",
-      "label": "vk-search-people",
+      "label": "Search People",
       "urlTemplate": "https://vk.com/search?c[section]=people&c[q]={username}",
       "validator": "getAndValidateVkUsername",
       "placeholders": [
@@ -9193,7 +9573,7 @@
       "id": "vk-search-photos",
       "category": "vk",
       "subcategory": "search",
-      "label": "vk-search-photos",
+      "label": "Search Photos",
       "urlTemplate": "https://vk.com/search?c[section]=photos&c[q]={username}",
       "validator": "getAndValidateVkUsername",
       "placeholders": [
@@ -9204,7 +9584,7 @@
       "id": "vk-search-tag",
       "category": "vk",
       "subcategory": "search",
-      "label": "vk-search-tag",
+      "label": "Search Tag",
       "urlTemplate": "https://vk.com/search/statuses?q={tag}",
       "validator": "getAndValidateVkTag",
       "placeholders": [
@@ -9215,7 +9595,7 @@
       "id": "vk-search-videos",
       "category": "vk",
       "subcategory": "search",
-      "label": "vk-search-videos",
+      "label": "Search Videos",
       "urlTemplate": "https://vk.com/search?c[section]=videos&c[q]={username}",
       "validator": "getAndValidateVkUsername",
       "placeholders": [
@@ -9226,7 +9606,7 @@
       "id": "vk-user-allposts",
       "category": "vk",
       "subcategory": "user",
-      "label": "vk-user-allposts",
+      "label": "All Posts",
       "urlTemplate": "https://vk.com/wall{userid}",
       "validator": "getAndValidateVkUserId",
       "placeholders": [
@@ -9237,7 +9617,7 @@
       "id": "vk-user-apps",
       "category": "vk",
       "subcategory": "user",
-      "label": "vk-user-apps",
+      "label": "User Apps",
       "urlTemplate": "https://vk.com/apps?act=user_apps&id={userid}",
       "validator": "getAndValidateVkUserId",
       "placeholders": [
@@ -9248,7 +9628,7 @@
       "id": "vk-user-audio",
       "category": "vk",
       "subcategory": "user",
-      "label": "vk-user-audio",
+      "label": "Audio",
       "urlTemplate": "https://vk.com/audios{userid}",
       "validator": "getAndValidateVkUserId",
       "placeholders": [
@@ -9259,7 +9639,7 @@
       "id": "vk-user-followers",
       "category": "vk",
       "subcategory": "user",
-      "label": "vk-user-followers",
+      "label": "Followers",
       "urlTemplate": "https://vk.com/friends?id={userid}&section=followers",
       "validator": "getAndValidateVkUserId",
       "placeholders": [
@@ -9270,7 +9650,7 @@
       "id": "vk-user-friends",
       "category": "vk",
       "subcategory": "user",
-      "label": "vk-user-friends",
+      "label": "Friends",
       "urlTemplate": "https://vk.com/friends?id={userid}",
       "validator": "getAndValidateVkUserId",
       "placeholders": [
@@ -9281,7 +9661,7 @@
       "id": "vk-user-gifts",
       "category": "vk",
       "subcategory": "user",
-      "label": "vk-user-gifts",
+      "label": "Gifts",
       "urlTemplate": "https://vk.com/gifts?id={userid}",
       "validator": "getAndValidateVkUserId",
       "placeholders": [
@@ -9292,7 +9672,7 @@
       "id": "vk-user-groups",
       "category": "vk",
       "subcategory": "user",
-      "label": "vk-user-groups",
+      "label": "User's Groups",
       "urlTemplate": "https://vk.com/groups?id={userid}",
       "validator": "getAndValidateVkUserId",
       "placeholders": [
@@ -9303,7 +9683,7 @@
       "id": "vk-user-market",
       "category": "vk",
       "subcategory": "user",
-      "label": "vk-user-market",
+      "label": "User's Market",
       "urlTemplate": "https://vk.com/market?owner_id={userid}",
       "validator": "getAndValidateVkUserId",
       "placeholders": [
@@ -9314,7 +9694,7 @@
       "id": "vk-user-notes",
       "category": "vk",
       "subcategory": "user",
-      "label": "vk-user-notes",
+      "label": "Notes",
       "urlTemplate": "https://vk.com/notes{userid}",
       "validator": "getAndValidateVkUserId",
       "placeholders": [
@@ -9325,7 +9705,7 @@
       "id": "vk-user-photoalbums",
       "category": "vk",
       "subcategory": "user",
-      "label": "vk-user-photoalbums",
+      "label": "Photo Albums",
       "urlTemplate": "https://vk.com/albums{userid}",
       "validator": "getAndValidateVkUserId",
       "placeholders": [
@@ -9336,7 +9716,7 @@
       "id": "vk-user-photos",
       "category": "vk",
       "subcategory": "user",
-      "label": "vk-user-photos",
+      "label": "User Photos",
       "urlTemplate": "https://vk.com/photos{userid}",
       "validator": "getAndValidateVkUserId",
       "placeholders": [
@@ -9347,7 +9727,7 @@
       "id": "vk-user-videos",
       "category": "vk",
       "subcategory": "user",
-      "label": "vk-user-videos",
+      "label": "Videos",
       "urlTemplate": "https://vk.com/video/@id{userid}",
       "validator": "getAndValidateVkUserId",
       "placeholders": [

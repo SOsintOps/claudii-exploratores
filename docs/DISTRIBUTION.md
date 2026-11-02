@@ -1,66 +1,64 @@
-# Publishing & Distribution
+# Releasing and keeping in sync
 
-This repo is self-contained and ready to synchronise to a Git host and share.
+## 1. Keeping the catalog in sync with Exploratores
 
-## 1. Initialise the Git repository
-
-```bash
-cd Claudii-Exploratores
-git init
-git add .
-git commit -m "Claudii Exploratores 1.0.0 — OSINT Skill + MCP"
-git branch -M main
-git remote add origin git@github.com:<you>/claudii-exploratores.git
-git push -u origin main
-```
-
-`dist/` and `__pycache__/` are git-ignored. `catalog.json` **is** committed (it is
-the runtime data, generated but required at run time).
-
-## 2. Release the Skill
-
-- Run `scripts/build_release.sh` to produce `dist/claudii-exploratores.skill`.
-- Attach that `.skill` file to a GitHub Release, or share it directly. Users can
-  import it from their Claude client, or unzip it into `~/.claude/skills/`.
-
-## 3. Publish the MCP server
-
-### Option A — from source (simplest)
-Users clone the repo and `pip install -e mcp/`. Done.
-
-### Option B — to PyPI
-```bash
-cd mcp
-python -m build            # produces dist/*.whl and *.tar.gz
-python -m twine upload dist/*
-```
-Then anyone can `pip install claudii-exploratores-mcp` and configure the
-`claudii-exploratores-mcp` command in their client.
-
-### Option C — list it in MCP directories
-Once public, submit the server to community MCP registries/directories so it is
-discoverable. Point them at the repo and `mcp/README.md`.
-
-## 4. Keeping the catalog current
-
-The upstream Exploratores toolkit evolves. To refresh:
+The catalog comes from the Exploratores export `assets/data/search-library.json`
+(with `catalogue-meta.json`, whose SHA-256 is checked). A weekly workflow
+(`.github/workflows/sync-exploratores.yml`) compares it with `shared/catalog.json`
+and opens an issue when Exploratores has changed. To update:
 
 ```bash
-scripts/build_release.sh /path/to/new/Exploratores-x.y.z
-git add shared/catalog.json skill mcp
-git commit -m "Refresh catalog from Exploratores x.y.z"
+scripts/build_release.sh /path/to/Exploratores     # checkout of branch v3
+pytest -q tests
 ```
 
-## 5. Licence obligations (AGPL-3.0)
+`build_release.sh` re-syncs the catalog, rebuilds the desk classification
+(`docs/query_classification.csv` and its page), the access map
+(`shared/access.json`) and the catalog overview, copies the engine into `skill/`
+and `mcp/`, and packages `dist/claudii-exploratores.skill`. Then add an entry to
+`docs/versionhistory.md` and open a pull request.
 
-Because the upstream toolkit is AGPL-3.0, this derivative is too. If you distribute
-it — or run a modified version as a network service — you must make the
-corresponding source available under the same licence. Keep `LICENSE` and `NOTICE`
-intact and preserve attribution to the original author (Ramingo / SOsintOps).
+Never edit the copies in `skill/` or `mcp/`, nor the generated files, by hand: CI
+fails when they differ from what the scripts produce.
 
-## 6. Responsible-use note for your README/release
+## 2. Access requirements
 
-State clearly that the suite is for authorised, lawful OSINT only, that it builds
-search links rather than fetching data, and that outputs are investigative leads to
-be independently verified. This protects users and reflects the tradecraft the
-skill teaches.
+`shared/access.json` merges two sources: the live verification in
+`docs/access-requirements-guide.md` (browser checks, then a VPN in the candidate
+country for the links that did not work) and the desk classification. To recheck:
+
+```bash
+python scripts/check_links.py --out passA.json                                   # current exit
+python scripts/check_links.py --retry-from passA.json --country US --out passB-US.json   # after switching the VPN
+```
+
+Raw results stay in the private work repository; only the cleaned guide is public.
+
+## 3. Release
+
+1. Bump the version in `mcp/pyproject.toml`, `mcp/exploratores_osint_mcp/server.py`
+   (`__version__`), `server.json`, the README badge and `CITATION.cff`.
+2. Add the release to `docs/versionhistory.md`.
+3. Merge to `main` with CI green, then tag and publish:
+
+```bash
+git tag v1.1.0-alpha && git push origin v1.1.0-alpha
+gh release create v1.1.0-alpha --prerelease --notes-file <notes> dist/claudii-exploratores.skill
+```
+
+### MCP server on PyPI and in the MCP registry (optional)
+
+```bash
+cd mcp && python -m build && python -m twine upload dist/*
+mcp-publisher login github && mcp-publisher publish     # uses ../server.json
+```
+
+`mcp/README.md` carries the `mcp-name: io.github.SOsintOps/claudii-exploratores`
+line the registry uses to check that the PyPI package belongs to this server.
+
+## 4. Licence obligations (AGPL-3.0)
+
+Because Exploratores is AGPL-3.0, this derivative is too. If you distribute it, or
+run a modified version as a network service, you must make the corresponding
+source available under the same licence. Keep `LICENSE` and `NOTICE` intact and
+preserve attribution to the original author (Ramingo / SOsintOps).

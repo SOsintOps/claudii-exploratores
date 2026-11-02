@@ -1,0 +1,739 @@
+{
+  "meta": {
+    "description": "Per-host access requirements (VPN country, Tor, account). 'live' = verified in a browser; 'desk' = desk classification.",
+    "hosts_total": 373,
+    "hosts_flagged": 130,
+    "geo_locked": [
+      "411.com",
+      "800notes.com",
+      "advancedbackgroundchecks.com",
+      "beta.shodan.io",
+      "carvana.com",
+      "cash.app",
+      "cyberbackgroundchecks.com",
+      "familytreenow.com",
+      "fastpeoplesearch.com",
+      "mysmsbox.ru",
+      "nerdydata.com",
+      "numpi.com",
+      "people.yellowpages.com",
+      "peoplesearchnow.com",
+      "radaris.com",
+      "rehold.com",
+      "smartbackgroundchecks.com",
+      "spam.org",
+      "usphonebook.com",
+      "wmtips.com",
+      "yandex.ru",
+      "zabasearch.com"
+    ]
+  },
+  "hosts": {
+    "3bbad7fauom4d6sgppalyqddsqbf5u5p56b5k5uk2zxsy3d6ey2jobad.onion": {
+      "source": "live",
+      "vpn": "tor"
+    },
+    "411.com": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Restricted to US IP ranges; loads normally through a US exit."
+    },
+    "5qqrlc7hw3tsgokkqifb33p3mrlpnleka2bjg7n46vih2synghb6ycid.onion": {
+      "source": "live",
+      "vpn": "tor"
+    },
+    "800notes.com": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Restricted to US IP ranges; loads normally through a US exit."
+    },
+    "acrevalue.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "addresses.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "advancedbackgroundchecks.com": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Blocked from Italy (\"Sorry, you have been blocked\"); loads through a US exit. Rechecked in a browser on 2026-11-01."
+    },
+    "aleph.occrp.org": {
+      "account": "recommended",
+      "account_detail": "Login optional (sign-in for some collections)",
+      "source": "live"
+    },
+    "americaphonebook.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "beta.shodan.io": {
+      "account": "required",
+      "account_detail": "Account/login required",
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Loads via a US exit, then requires an account."
+    },
+    "blockchair.com": {
+      "bot_protection": true,
+      "source": "live"
+    },
+    "callersmart.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "carvana.com": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Blocked from Italy (\"Sorry, you have been blocked\"); loads through a US exit. Rechecked in a browser on 2026-11-01."
+    },
+    "cash.app": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Restricted to US IP ranges; loads normally through a US exit."
+    },
+    "checko.ru": {
+      "country": "RU",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN Russia recommended (possible block/limit for foreign IPs)"
+    },
+    "checkthatvin.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "clarifiedby.diligenciagroup.com": {
+      "account": "required",
+      "account_detail": "Account/login required",
+      "source": "live"
+    },
+    "classmates.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "cyberbackgroundchecks.com": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Blocked from Italy (\"Sorry, you have been blocked\"); loads through a US exit. Rechecked in a browser on 2026-11-01."
+    },
+    "cyclevin.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "dehashed.com": {
+      "account": "required",
+      "account_detail": "Paid account required",
+      "source": "live"
+    },
+    "discord.com": {
+      "account": "recommended",
+      "account_detail": "No login to preview; Discord login to join",
+      "source": "live"
+    },
+    "discord.gg": {
+      "account": "recommended",
+      "account_detail": "No login to preview; Discord login to join",
+      "source": "live"
+    },
+    "discord.me": {
+      "account": "required",
+      "account_detail": "Platform login: Discord (to view content)",
+      "source": "desk"
+    },
+    "domainiq.com": {
+      "account": "required",
+      "account_detail": "Account/login required",
+      "source": "live"
+    },
+    "eniro.se": {
+      "country": "SE",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN Sweden recommended (possible block/limit for foreign IPs)"
+    },
+    "epieos.com": {
+      "account": "recommended",
+      "account_detail": "Free registration for full results",
+      "source": "live"
+    },
+    "explorer.crystalblockchain.com": {
+      "account": "required",
+      "account_detail": "Account",
+      "source": "desk"
+    },
+    "facebook.com": {
+      "account": "required",
+      "account_detail": "Requires logged-in profile (Facebook)",
+      "source": "live"
+    },
+    "familytreenow.com": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Blocked from Italy (\"Sorry, you have been blocked\"); loads through a US exit. Rechecked in a browser on 2026-11-01."
+    },
+    "fastpeoplesearch.com": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Blocked from Italy (\"Sorry, you have been blocked\"); loads through a US exit. Rechecked in a browser on 2026-11-01."
+    },
+    "faxvin.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "freshonifyfe4rmuh6qwpsexfhdrww7wnt5qmkoertwxmcuvm4woo4ad.onion": {
+      "source": "live",
+      "vpn": "tor"
+    },
+    "go.mail.ru": {
+      "account": "required",
+      "account_detail": "Platform login: VK / Mail.ru (to view content)",
+      "source": "desk"
+    },
+    "googleapis.com": {
+      "account": "required",
+      "account_detail": "API key required",
+      "source": "live"
+    },
+    "hitta.se": {
+      "country": "SE",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN Sweden recommended (possible block/limit for foreign IPs)"
+    },
+    "hudway.co": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "hunter.io": {
+      "account": "recommended",
+      "account_detail": "No login for verifier UI; free registration for full results",
+      "source": "live"
+    },
+    "hybrid-analysis.com": {
+      "account": "required",
+      "account_detail": "Account/login required",
+      "source": "live"
+    },
+    "idcrawl.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "infotracer.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "instagram.com": {
+      "account": "required",
+      "account_detail": "Requires logged-in profile (Instagram)",
+      "source": "live"
+    },
+    "intelius.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "intelx.io": {
+      "account": "required",
+      "account_detail": "Account required (registration)",
+      "source": "live"
+    },
+    "juhanurmihxlp77nkq76byazcldy2hlmovfu2epvl5ankdibsot4csyd.onion": {
+      "source": "live",
+      "vpn": "tor"
+    },
+    "kik.me": {
+      "account": "recommended",
+      "account_detail": "No login (deep-link splash); Kik app to chat",
+      "source": "live"
+    },
+    "leakix.net": {
+      "account": "required",
+      "account_detail": "Account required (redirect to /auth/login)",
+      "source": "live"
+    },
+    "linkedin.com": {
+      "account": "required",
+      "account_detail": "Requires logged-in profile (LinkedIn)",
+      "source": "live"
+    },
+    "maltiverse.com": {
+      "account": "required",
+      "account_detail": "Account/login required",
+      "source": "live"
+    },
+    "maxmind.com": {
+      "account": "required",
+      "account_detail": "Account",
+      "source": "desk"
+    },
+    "mbasic.facebook.com": {
+      "account": "required",
+      "account_detail": "Requires logged-in profile (Facebook)",
+      "source": "live"
+    },
+    "merinfo.se": {
+      "country": "SE",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN Sweden recommended (possible block/limit for foreign IPs)"
+    },
+    "metasleuth.io": {
+      "account": "recommended",
+      "account_detail": "Free registration for full (partial no-login)",
+      "source": "live"
+    },
+    "mewe.com": {
+      "account": "required",
+      "account_detail": "Platform login: MeWe (profile 404 for test user)",
+      "source": "live"
+    },
+    "moz.com": {
+      "account": "recommended",
+      "account_detail": "Free registration for full results",
+      "source": "live"
+    },
+    "mrkoll.se": {
+      "country": "SE",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN Sweden recommended (possible block/limit for foreign IPs)"
+    },
+    "mysmsbox.ru": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Restricted to US IP ranges; loads normally through a US exit."
+    },
+    "myspace.com": {
+      "account": "required",
+      "account_detail": "Account/login required (password field present)",
+      "source": "live"
+    },
+    "naijaplanet.com": {
+      "account": "required",
+      "account_detail": "Account/login required for full profile",
+      "source": "live"
+    },
+    "nerdydata.com": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Restricted to US IP ranges; loads normally through a US exit."
+    },
+    "no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.onion": {
+      "source": "live",
+      "vpn": "tor"
+    },
+    "numpi.com": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Blocked from Italy (\"Sorry, you have been blocked\"); loads through a US exit. Rechecked in a browser on 2026-11-01."
+    },
+    "okcaller.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "opencorporates.com": {
+      "account": "recommended",
+      "account_detail": "Public search works; a free account raises rate limits and unlocks full record history.",
+      "source": "live"
+    },
+    "openpayrolls.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "people.yellowpages.com": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Blocked from Italy (\"Sorry, you have been blocked\"); loads through a US exit. Rechecked in a browser on 2026-11-01."
+    },
+    "peoplebyname.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "peoplefinders.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "peoplesearchnow.com": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Blocked from Italy (\"Sorry, you have been blocked\"); loads through a US exit. Rechecked in a browser on 2026-11-01."
+    },
+    "phoneowner.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "portal.aql.com": {
+      "account": "required",
+      "account_detail": "Account required",
+      "source": "live"
+    },
+    "portal.spycloud.com": {
+      "account": "required",
+      "account_detail": "Account required (enterprise)",
+      "source": "live"
+    },
+    "publicrecords.searchsystems.net": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "pulsedive.com": {
+      "account": "required",
+      "account_detail": "Account/login required",
+      "source": "live"
+    },
+    "radaris.com": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Restricted to US IP ranges; loads normally through a US exit."
+    },
+    "ratsit.se": {
+      "country": "SE",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN Sweden recommended (possible block/limit for foreign IPs)"
+    },
+    "realtor.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "recordsfinder.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "rehold.com": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Restricted to US IP ranges; loads normally through a US exit."
+    },
+    "research.domaintools.com": {
+      "account": "required",
+      "account_detail": "Account / paywall",
+      "source": "desk"
+    },
+    "reversewhois.domaintools.com": {
+      "account": "recommended",
+      "account_detail": "Account for full results (preview no-login)",
+      "source": "live"
+    },
+    "rusfinder.pro": {
+      "country": "RU",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN Russia recommended (possible block/limit for foreign IPs)"
+    },
+    "scamsearch.io": {
+      "account": "required",
+      "account_detail": "Registration required",
+      "source": "live"
+    },
+    "search.censys.io": {
+      "account": "required",
+      "account_detail": "Account/registration required",
+      "source": "live"
+    },
+    "searchgf7gdtauh7bhnbyed4ivxqmuoat3nm6zfrg3ymkq6mtnpye3ad.onion": {
+      "source": "live",
+      "vpn": "tor"
+    },
+    "searchpeoplefree.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "searchquarry.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "securitytrails.com": {
+      "account": "recommended",
+      "account_detail": "No login (registration for extras)",
+      "source": "live"
+    },
+    "shodan.io": {
+      "account": "required",
+      "account_detail": "A (free) account is required to run searches; results are global.",
+      "source": "live"
+    },
+    "smartbackgroundchecks.com": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Blocked from Italy (\"Sorry, you have been blocked\"); loads through a US exit. Rechecked in a browser on 2026-11-01."
+    },
+    "snapchat.com": {
+      "account": "required",
+      "account_detail": "Platform login: Snapchat (to view content)",
+      "source": "desk"
+    },
+    "spam.org": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Restricted to US IP ranges; loads normally through a US exit."
+    },
+    "spokeo.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "spyfu.com": {
+      "account": "required",
+      "account_detail": "Account / paywall",
+      "source": "desk"
+    },
+    "t.me": {
+      "account": "recommended",
+      "account_detail": "No login (public preview; login to interact)",
+      "source": "live"
+    },
+    "thatsthem.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "threads.net": {
+      "account": "required",
+      "account_detail": "Account/login required (Threads)",
+      "source": "live"
+    },
+    "tiktok.com": {
+      "account": "required",
+      "account_detail": "Requires logged-in profile (TikTok)",
+      "source": "live"
+    },
+    "tinder.com": {
+      "account": "required",
+      "account_detail": "Platform login: Tinder (to view content)",
+      "source": "desk"
+    },
+    "tor66sewebgixwhcqfnp5inzp5x5uohhdy3kvtnyfxc2e5mxiuh34iid.onion": {
+      "source": "live",
+      "vpn": "tor"
+    },
+    "tria.ge": {
+      "account": "required",
+      "account_detail": "Account required (registration)",
+      "source": "live"
+    },
+    "truepeoplesearch.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "trulia.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "truthfinder.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "twitter.com": {
+      "account": "required",
+      "account_detail": "Requires logged-in profile (X / Twitter)",
+      "source": "live"
+    },
+    "u5lyidiw4lpkonoctpqzxgyk6xop7w7w3oho4dzzsi272rwnjhyx7ayd.onion": {
+      "source": "live",
+      "vpn": "tor"
+    },
+    "urlscan.io": {
+      "account": "required",
+      "account_detail": "Account/login required",
+      "source": "live"
+    },
+    "usa-people-search.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "usphonebook.com": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Restricted to US IP ranges; loads normally through a US exit."
+    },
+    "viewdns.info": {
+      "account": "recommended",
+      "account_detail": "Free (login optional for full results)",
+      "source": "live"
+    },
+    "vincheck.info": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "vindecoderz.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "virustotal.com": {
+      "account": "recommended",
+      "account_detail": "Basic lookups are public; a free account is needed for the full GUI and history.",
+      "source": "live"
+    },
+    "vk.com": {
+      "account": "required",
+      "account_detail": "Requires logged-in profile (VK)",
+      "source": "live"
+    },
+    "vk.me": {
+      "account": "required",
+      "account_detail": "Requires logged-in profile (VK)",
+      "source": "live"
+    },
+    "voterrecords.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "whitepages.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "whois.domaintools.com": {
+      "account": "recommended",
+      "account_detail": "Basic WHOIS is public; historical/reverse data needs a paid account.",
+      "source": "live"
+    },
+    "whoisology.com": {
+      "account": "required",
+      "account_detail": "Account / paywall",
+      "source": "desk"
+    },
+    "whoseno.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "whoxy.com": {
+      "account": "required",
+      "account_detail": "Account / API for results",
+      "source": "desk"
+    },
+    "wigle.net": {
+      "account": "required",
+      "account_detail": "Account/login required",
+      "source": "live"
+    },
+    "wmtips.com": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Restricted to US IP ranges; loads normally through a US exit."
+    },
+    "x.com": {
+      "account": "required",
+      "account_detail": "Requires logged-in profile (X/Twitter)",
+      "source": "live"
+    },
+    "yandex.ru": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Restricted to US IP ranges; loads normally through a US exit."
+    },
+    "yasni.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    },
+    "youtube.googleapis.com": {
+      "account": "required",
+      "account_detail": "API key required (endpoint reachable)",
+      "source": "live"
+    },
+    "zabasearch.com": {
+      "country": "US",
+      "source": "live",
+      "vpn": "required",
+      "vpn_detail": "Restricted to US IP ranges; loads normally through a US exit."
+    },
+    "zb2jtkhnbvhkya3d46twv3g7lkobi4s62tjffqmafjibixk6pmq75did.onion": {
+      "source": "live",
+      "vpn": "tor"
+    },
+    "zillow.com": {
+      "country": "US",
+      "source": "desk",
+      "vpn": "recommended",
+      "vpn_detail": "VPN United States recommended (many sites limit/block EU IPs due to GDPR/CCPA)"
+    }
+  }
+}

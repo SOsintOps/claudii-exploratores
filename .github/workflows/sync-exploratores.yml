@@ -1,0 +1,69 @@
+name: Sync with Exploratores
+
+# Weekly check that the catalog matches the latest Exploratores release.
+# On drift it opens (or updates) an issue with the summary; a maintainer then runs
+# scripts/build_release.sh locally and opens a pull request.
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"   # Mondays 06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: SOsintOps/Exploratores
+          ref: v3
+          path: upstream
+          sparse-checkout: |
+            assets/data
+            assets/js/janua-search-map.js
+            pages
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compare catalog
+        id: cmp
+        run: |
+          set +e
+          python scripts/sync_catalog.py upstream --check
+          echo "drift=$?" >> "$GITHUB_OUTPUT"
+      - name: Summarise drift
+        if: steps.cmp.outputs.drift != '0'
+        run: |
+          python scripts/sync_catalog.py upstream --out /tmp/new.json
+          python - <<'PY' > /tmp/body.md
+          import json
+          old = {e["id"]: e for e in json.load(open("shared/catalog.json"))["entries"]}
+          new_cat = json.load(open("/tmp/new.json"))
+          new = {e["id"]: e for e in new_cat["entries"]}
+          add = sorted(set(new) - set(old)); rem = sorted(set(old) - set(new))
+          chg = sorted(i for i in set(new) & set(old) if new[i]["urlTemplate"] != old[i]["urlTemplate"])
+          print(f"Exploratores {new_cat['meta']['upstream_version']} differs from the catalog "
+                f"in this repository ({len(old)} -> {len(new)} tools).\n")
+          for title, ids in (("Added", add), ("Removed", rem), ("URL changed", chg)):
+              print(f"**{title}** ({len(ids)}): " + (", ".join(f"`{i}`" for i in ids) or "none") + "\n")
+          print("To update: `scripts/build_release.sh /path/to/Exploratores`, run the tests, "
+                "update docs/versionhistory.md, open a pull request.")
+          PY
+      - name: Open or update issue
+        if: steps.cmp.outputs.drift != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="Catalog out of sync with Exploratores"
+          num=$(gh issue list --state open --search "\"$title\" in:title" --json number --jq '.[0].number')
+          if [ -n "$num" ]; then
+            gh issue comment "$num" --body-file /tmp/body.md
+          else
+            gh issue create --title "$title" --body-file /tmp/body.md --label sync || \
+            gh issue create --title "$title" --body-file /tmp/body.md
+          fi

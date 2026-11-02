@@ -1,0 +1,30 @@
+name: Broken, blocked or geo-locked link
+description: A generated link fails, shows a block page, or needs a VPN or an account not flagged in its warning.
+labels: [link]
+body:
+  - type: input
+    id: tool
+    attributes:
+      label: Tool id
+      description: The "id" field of the result, e.g. names-us-radaris.
+    validations:
+      required: true
+  - type: dropdown
+    id: symptom
+    attributes:
+      label: What you see
+      options: [Site gone (DNS error / domain for sale), Error page or 404, Block page or empty result (geo-locked?), Login wall, CAPTCHA or bot check, Wrong results (template outdated)]
+    validations:
+      required: true
+  - type: input
+    id: exit
+    attributes:
+      label: Your exit country
+      description: Country of your IP (or VPN exit) when you tried, e.g. IT, US.
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: Details
+      description: Date, what you tried (other browser, other exit), neutral test value used. No real case data.
