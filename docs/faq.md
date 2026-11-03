@@ -111,12 +111,6 @@ Yes:
 
 *   **[Exploratores](https://github.com/SOsintOps/Exploratores)**: the web toolkit this suite is derived from, with the same catalogue, the Redactor, CyberChef and Janua.
 *   **[Intelligence Field Notes](https://github.com/SOsintOps/intelligence-field-notes)**: analytic standards, OSINT method, source evaluation and report writing.
-*   **[Argos](https://github.com/SOsintOps/Argos)** and **[Speculator](https://github.com/SOsintOps/Speculator-Project)**: OSINT workstations for Ubuntu and Debian, with Exploratores as their start page.
-*   **[Quaesitor](https://github.com/SOsintOps/quaesitor)**: a local case graph for people, phones, accounts, companies and documents.
-*   **[Il Conclave](https://github.com/SOsintOps/il-conclave)**: a Claude Code skill (in Italian) that runs analytic techniques — ACH, a premortem, a steelman — as separate procedures on one question.
-*   **[Maigret](https://github.com/SOsintOps/maigret)**: our fork of the username-search tool, to check a username across thousands of sites at once.
-
-The full list is in the field notes' [Related Projects](https://github.com/SOsintOps/intelligence-field-notes/blob/main/docs/related-projects.md).
 
 ## MCP and LLMs for OSINT
 
