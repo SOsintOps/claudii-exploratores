@@ -22,7 +22,7 @@ jobs:
           - { python: "3.13", mcp: ">=2,<3" }
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python }}
           cache: pip
@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-24.04   # setup-python has no 3.9 build for Ubuntu 26.04
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.9"
       - name: CLI smoke test
@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - name: Rebuild and compare
