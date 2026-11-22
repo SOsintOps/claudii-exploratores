@@ -4,7 +4,14 @@ updates:
     directory: /
     schedule:
       interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
   - package-ecosystem: pip
     directory: /mcp
     schedule:
       interval: monthly
+    groups:
+      # One pull request a month for minor and patch updates; a major update comes alone.
+      pip-minor-patch:
+        update-types: [minor, patch]
